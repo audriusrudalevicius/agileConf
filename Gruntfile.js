@@ -9,6 +9,8 @@ module.exports = function (grunt) {
   'rx',
   'rx-lite',
   'sockjs',
+  'jquery',
+  'bootstrap'
   ];
 
   grunt.initConfig({
@@ -53,7 +55,7 @@ module.exports = function (grunt) {
         verbose: true
       },
       base: {
-        src: ['scripts/typescript/**/*.ts'],
+        src: ['scripts/typescript/**/*.ts', 'typings/**/*.ts'],
         //out: 'scripts/dist/app.js',
         outDir: 'scripts/dist/',
         options: {

@@ -1,12 +1,10 @@
-/// <reference path="../../typings/angular2/angular2.d.ts" />
-
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {Component, View, bootstrap, ApplicationRef} from 'angular2/angular2';
 
 @Component({
-  selector: 'nfq-app'
+    selector: 'nfq-app'
 })
 @View({
-  template: `
+    template: `
     <div class="row">
       <div class="pages col-xs-8">
         <div class="col-xs-10 adaptive-mobile">
@@ -38,10 +36,10 @@ import {Component, View, bootstrap} from 'angular2/angular2';
 })
 
 class BikeChallenge {
-  name:string;
-
-  constructor() {
-  }
+    constructor() {
+    }
 }
 
-bootstrap(BikeChallenge);
+bootstrap(BikeChallenge).then((ref:ApplicationRef) => {
+    $.material.init();
+});

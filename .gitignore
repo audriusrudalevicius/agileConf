@@ -1,5 +1,5 @@
 /app.js
-/typings
+/typings/
 /.idea
 /bower_components
 /node_modules
@@ -9,5 +9,6 @@
 /styles/css/app.css
 /styles/css/app.css.map
 !scripts/dist/.gitkeep
+!typings/material/material.d.ts
 /scripts/typescript/app.js.map
 /scripts/typescript/app.js
