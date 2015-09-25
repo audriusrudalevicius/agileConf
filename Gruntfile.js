@@ -3,7 +3,22 @@ module.exports = function (grunt) {
 
   require("load-grunt-tasks")(grunt);
 
+  var definitions = [
+  'angular2',
+  'es6-promise',
+  'rx',
+  'rx-lite',
+  'sockjs',
+  ];
+
   grunt.initConfig({
+  	exec: {
+  		install_definitions: {
+  			command: 'tsd install ' + definitions.join(' '),
+      		stdout: false,
+      		stderr: false
+  		}
+  	},
     less: {
       app: {
         options: {
