@@ -1,3 +1,6 @@
+Install
+
+===
 
 ```
 $ npm install -g tsd@^0.6.0
@@ -8,3 +11,19 @@ $ tsd install angular2 es6-promise rx rx-lite
 $ bower install
 ```
 
+Compile
+
+===
+
+```
+$ grunt compile
+```
+
+
+Run
+
+===
+
+```
+$ grunt serve
+```
