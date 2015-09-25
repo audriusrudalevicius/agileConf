@@ -6,9 +6,9 @@ import {Component, View, bootstrap, ApplicationRef} from 'angular2/angular2';
 @View({
     template: `
     <div class="row">
-      <div class="pages col-xs-8">
-        <div class="col-xs-10 adaptive-mobile">
-          <div class="well page active bs-component">
+      <div class="pages">
+        <div class="adaptive-mobile">
+          <div class="well page active bs-component registration-form">
             <form class="form-horizontal">
               <fieldset>
                 <legend>Bike Challenge - Registration</legend>
@@ -19,8 +19,8 @@ import {Component, View, bootstrap, ApplicationRef} from 'angular2/angular2';
                 </div>
                 <div class="form-group">
                 </div>
-                <div class="form-group">
-                  <div class="col-lg-10 col-lg-offset-2">
+                <div class="form-group buttons-row">
+                  <div class="col-lg-10 col-lg-offset-1">
                     <button type="submit" class="btn btn-material-blue-grey btn-lg">Submit</button>
                   </div>
                 </div>

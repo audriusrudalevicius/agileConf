@@ -3,13 +3,15 @@
 @import "../../bower_components/bootstrap/less/variables";
 @import "variables";
 body {
-  background-color: @body-bg;
+  background: @body-bg;
 }
 * {
   box-sizing: border-box;
 }
 .header-panel {
-  background-color: @body-bg;
+  background: @body-bg center no-repeat  url("../../images/logo.png");
+  background-position-y: 15px;
+
   height: 350px;
   position: relative;
   z-index: 3;
@@ -68,16 +70,11 @@ body {
   text-decoration: none;
 }
 .pages {
-  position: absolute;
-  right: 0;
-  bottom: 10%;
-  z-index: 4;
   padding: 0;
   overflow: auto;
 }
 .pages > div {
   padding: 0 5px;
-  padding-top: 64px;
 }
 
 .pages .header {
@@ -104,7 +101,27 @@ body {
   opacity: 1;
 }
 
-@media (max-width: @screen-sm-min) {
+.registration-form {
+  width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  > .form-horizontal {
+    margin-bottom: 0;
+  }
+  > .form-horizontal .buttons-row {
+    padding-top: 50px;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: @screen-sm-max) {
+  .header-panel {
+    height: 90px;
+    background: @body-bg center no-repeat  url("../../images/resized_logo.png");
+    background-position-y: 10px;
+  }
+  .registration-form {
+    width: 90%;
+  }
   .adaptive-mobile {
     width: 100%;
   }
@@ -117,11 +134,12 @@ body {
     padding-left: @modal-inner-padding;
     width: 100%;
   }
-  .header-panel {
-    height: 150px;
+  .pages > div {
+    padding: 5px 5px 0;
   }
-  .header-panel h1 {
-    font-size: 75pt;
-    padding-left: 35px;
+  .header-panel {
+    height: 90px;
+    background: @body-bg center no-repeat  url("../../images/resized_logo.png");
+    background-position-y: 5px;
   }
 }
