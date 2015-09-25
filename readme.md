@@ -1,20 +1,17 @@
-Install
-
-======
+### Install
 
 
 ```
+$ npm install
 $ npm install -g tsd@^0.6.0
 $ npm install -g typescript@~1.6.2
 $ npm install -g bower
 $ npm install -g grunt-cli
-$ grunt exec:install_definitions
 $ bower install
+$ grunt install
 ```
 
-Compile
-
-======
+### Compile
 
 
 ```
@@ -22,17 +19,22 @@ $ grunt compile
 ```
 
 
-Run
-
-======
+### Run
 
 
 ```
 $ grunt serve
 ```
 
-Screenshot
+### Update after code changes
 
-------
+```
+$ npm install
+$ bower install
+$ grunt install
+```
+
+
+### Screenshot
 
 ![Screenshot](https://github.com/d3trax/agileConf/blob/master/docs/resized_snapshot4.png "Screenshot")

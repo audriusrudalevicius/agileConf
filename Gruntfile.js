@@ -84,7 +84,9 @@ module.exports = function (grunt) {
       }
     }
   });
-
+  grunt.registerTask("install", [
+    "exec:install_definitions"
+  ]);
   grunt.registerTask("serve", function(target){
     grunt.task.run([
       "connect:livereload",
