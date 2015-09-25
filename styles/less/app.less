@@ -1,0 +1,131 @@
+//@import "../../bower_components/bootstrap/less/bootstrap.less";
+//@import "../../bower_components/bootstrap-material-design/less/material-fullpalette.less";
+@import "../../bower_components/bootstrap/less/variables";
+@import "variables";
+body {
+  background-color: @body-bg;
+}
+* {
+  box-sizing: border-box;
+}
+.header-panel {
+  background-color: @body-bg;
+  height: 350px;
+  position: relative;
+  z-index: 3;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+.header-panel div {
+  position: relative;
+  height: 100%;
+}
+.header-panel h1 {
+  color: #FFF;
+  font-size: 200pt;
+  font-weight: 400;
+  position: absolute;
+  bottom: 10px;
+  padding-left: 150px;
+  user-select: none;
+}
+
+.menu {
+  background-color: @menu-color;
+  overflow: auto;
+  padding: 0;
+}
+.menu, .menu * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.menu ul {
+  padding: 0;
+  margin: 7px 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  user-select: none;
+}
+.menu ul li {
+  list-style: none;
+  padding: 20px 0 20px 50px;
+  font-size: 15px;
+  font-weight: normal;
+  cursor: pointer;
+}
+.menu ul li.active {
+  background-color: #dedede;
+  position: relative;
+}
+.menu ul li a {
+  color: rgb(51, 51, 51);
+  text-decoration: none;
+}
+.pages {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  z-index: 4;
+  padding: 0;
+  overflow: auto;
+}
+.pages > div {
+  padding: 0 5px;
+  padding-top: 64px;
+}
+
+.pages .header {
+  color: rgb(82, 101, 162);
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  letter-spacing: 1.20000004768372px;
+}
+
+.page {
+  transform: translateY(1080px);
+  transition: transform 0 linear;
+  display: none;
+  opacity: 0;
+  font-size: 16px;
+}
+
+.page.active {
+  transform: translateY(0px);
+  transition: all 0.3s ease-out;
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: @screen-sm-min) {
+  .adaptive-mobile {
+    width: 100%;
+  }
+  .pages {
+    position: inherit;
+    bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: @modal-inner-padding;
+    padding-left: @modal-inner-padding;
+    width: 100%;
+  }
+  .header-panel {
+    height: 150px;
+  }
+  .header-panel h1 {
+    font-size: 75pt;
+    padding-left: 35px;
+  }
+}
+
+.page .form-group .floating-label {
+  left: 15px;
+}

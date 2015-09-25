@@ -1,0 +1,13 @@
+/app.js
+/typings
+/.idea
+/bower_components
+/node_modules
+/.vscode
+/scripts/dist/*
+/.tscache
+/styles/css/app.css
+/styles/css/app.css.map
+!scripts/dist/.gitkeep
+/scripts/typescript/app.js.map
+/scripts/typescript/app.js
