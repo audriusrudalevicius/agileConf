@@ -13,11 +13,8 @@ import {Component, View, bootstrap, ApplicationRef} from 'angular2/angular2';
               <fieldset>
                 <legend>Bike Challenge - Registration</legend>
                 <div class="form-group">
-                    <div class="form-control-wrapper col-lg-9 col-lg-offset-1">
-                      <input class="form-control empty" id="focusedInput" type="email" data-hint="You should really write something here">
-                      <div class="floating-label">Enter name</div>
-                      <div class="hint">Persons name</div>
-                      <span class="material-input"></span>
+                    <div class="col-lg-9 col-lg-offset-1">
+                      <input class="form-control floating-label" type="text" placeholder="Enter persons name" data-hint="You should really write something here">
                     </div>
                 </div>
                 <div class="form-group">
