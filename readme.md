@@ -1,6 +1,7 @@
 Install
 
-===
+======
+
 
 ```
 $ npm install -g tsd@^0.6.0
@@ -13,7 +14,8 @@ $ bower install
 
 Compile
 
-===
+======
+
 
 ```
 $ grunt compile
@@ -22,8 +24,15 @@ $ grunt compile
 
 Run
 
-===
+======
+
 
 ```
 $ grunt serve
 ```
+
+Screenshot
+
+------
+
+![Screenshot](https://github.com/d3trax/agileConf/tree/master/docs/resized_snapshot4.png "Screenshot")
