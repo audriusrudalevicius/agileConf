@@ -35,4 +35,4 @@ Screenshot
 
 ------
 
-![Screenshot](https://github.com/d3trax/agileConf/tree/master/docs/resized_snapshot4.png "Screenshot")
+![Screenshot](https://github.com/d3trax/agileConf/blob/master/docs/resized_snapshot4.png "Screenshot")
