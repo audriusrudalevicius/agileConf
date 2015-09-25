@@ -10,9 +10,10 @@ body {
 }
 .header-panel {
   background: @body-bg center no-repeat  url("../../images/logo.png");
-  background-position-y: 15px;
-
-  height: 350px;
+  background-size: 35%;
+  background-position-y: 80px;
+  background-position-x: 345px;
+  height: 315px;
   position: relative;
   z-index: 3;
 
@@ -20,6 +21,14 @@ body {
   -khtml-user-select: none;
   -webkit-user-select: none;
   cursor: default;
+
+  .logo-text {
+    color: #fff;
+    position: relative;
+    padding-top: 207px;
+    text-align: center;
+    font-size: 42px;
+  }
 }
 .header-panel div {
   position: relative;
@@ -102,15 +111,30 @@ body {
 }
 
 .registration-form {
-  width: 580px;
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
   > .form-horizontal {
-    margin-bottom: 0;
+    margin-bottom: 10px;
+  }
+  > .form-horizontal .first-row {
   }
   > .form-horizontal .buttons-row {
-    padding-top: 50px;
     margin-bottom: 0;
+  }
+  > .form-horizontal .buttons-row button {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 700;
+    background-color: #333;
+  }
+  input.form-control {
+    font-size: 18px;
+  }
+}
+@media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
+  .header-panel {
+    background-position-x: -165px;
   }
 }
 @media (max-width: @screen-sm-max) {
