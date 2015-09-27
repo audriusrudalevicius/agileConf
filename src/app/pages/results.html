@@ -4,7 +4,7 @@
             <div class="pages">
                 <div class="adaptive-mobile">
                     <div class="well page active bs-component page-results">
-                        <div if.bind="challenge">
+                        <div if.bind="challenge.id">
                             Your distance: ${challenge.distance} m
                         </div>
                         <div>
@@ -13,13 +13,14 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
+                                    <th>Distance</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr repeat.for="item of results">
-                                    ${item}
+                                <tr class="au-animate" repeat.for="item of results">
                                     <td>${item.place}</td>
                                     <td>${item.name}</td>
+                                    <td>${item.distance}</td>
                                 </tr>
                                 </tbody>
                             </table>

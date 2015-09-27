@@ -11,7 +11,7 @@ export class ChallengeRegistry {
     }
 
     public registerNew(name:string):Challenge {
-        var challenge = new Challenge(name, this.challenges.length);
+        var challenge = Challenge.createNew(name, this.challenges.length);
         this.challenges.push(challenge);
 
         this.save();
@@ -41,7 +41,16 @@ export class ChallengeRegistry {
         let loaded = localStorage.getItem('challenges');
         if (loaded) {
             try {
-                this.challenges = JSON.parse(loaded);
+                let challenges:Object[] = JSON.parse(loaded);
+                if (challenges) {
+                    for (var i in challenges) {
+                        if (!challenges.hasOwnProperty(i)) {
+                            continue;
+                        }
+                        var item = challenges[i];
+                        this.challenges.push(Challenge.unmarshal(item));
+                    }
+                }
             } catch (e) {
                 this.challenges = [];
             }

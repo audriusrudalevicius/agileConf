@@ -30,6 +30,8 @@ export class Results {
     }
 
     public get results():Challenge[] {
-        return this.registry.getResults();
+        return this.registry.getResults().sort((a, b) => {
+            return (a.place - b.place) + (a.maxSpeed - b.maxSpeed);
+        });
     }
 }

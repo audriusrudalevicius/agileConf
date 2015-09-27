@@ -15,18 +15,20 @@
                         <div class="text-center">
                             <h3>Time left:</h3>
 
-                            <h1>30</h1>
+                            <h1>${challenge.timeLeft}</h1>
                         </div>
                         <div class="col-lg-6 speed text-center">
                             <h3>Speed:</h3>
 
-                            <h1>30 km/h</h1>
+                            <h1>${challenge.speed} km/h</h1>
                         </div>
                         <div class="col-lg-6 distance text-center">
                             <h3>Distance:</h3>
 
-                            <h1>300 m</h1>
+                            <h1>${challenge.distance} m</h1>
                         </div>
+
+                        <div><a route-href="route: results; params.bind: {id:challenge.id}">continue</a></div>
                     </div>
                 </div>
             </div>

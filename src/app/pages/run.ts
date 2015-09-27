@@ -22,6 +22,10 @@ export class Run {
     }
 
     activate(params) {
-        this.challenge = this.registry.findChallenge(params.id);
+        try {
+            this.challenge = this.registry.findChallenge(params.id);
+        } catch (e) {
+            this.router.navigate('/');
+        }
     }
 }

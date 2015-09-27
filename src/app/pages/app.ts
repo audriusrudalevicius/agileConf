@@ -8,7 +8,7 @@ export class App {
         config.map([
             {route: ['', 'register'], moduleId: './register', nav: false, title: 'Challenge'},
             {route: 'run/:id', moduleId: './run', nav: false, title: 'Challenge'},
-            {route: ['results/', 'results/:id'], moduleId: './results', nav: false, title: 'Results'}
+            {route: ['results/', 'results/:id'], moduleId: './results', nav: false, title: 'Results', name: 'results'}
         ]);
 
         this.router = router;
