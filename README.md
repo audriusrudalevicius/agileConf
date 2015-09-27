@@ -25,18 +25,29 @@ To run the app, follow these steps.
   jspm install -y
   ```
   >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-6. To run the app, execute the following command:
+6. Install bower command line:
+
+  ```shell
+  npm install -g bower
+  ```
+  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
+7. Install Typescript typings
+
+  ```shell
+  tsd install
+  ```
+8. Install bower dependencies
+
+   ```shell
+   bower install
+   ```
+9. To run the app, execute the following command:
 
   ```shell
   gulp watch
   ```
 
-7. Install typings
-
-  ```shell
-  tsd install
-  ```
-8. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
+10. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
 
 
 ## Bundling
