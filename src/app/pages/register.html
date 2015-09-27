@@ -1,11 +1,11 @@
 <template>
     <section class="au-animate">
-        <div class="well page active bs-component registration-form">
+        <div class="well page active bs-component page-registration">
             <form class="form-horizontal" submit.delegate="register($event)">
                 <fieldset>
-                    <div class="form-group first-row">
+                    <div class="form-group first-row ${isEmpty ? 'has-error' : ''}">
                         <div class="col-lg-12">
-                            <input class="form-control" type="text" placeholder="Enter your name.."
+                            <input keyup.delegate="check()" class="form-control" type="text" placeholder="Enter your name.."
                                    value.bind="name" >
                         </div>
                     </div>

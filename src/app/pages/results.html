@@ -1,0 +1,32 @@
+<template>
+    <section class="au-animate">
+        <div class="row">
+            <div class="pages">
+                <div class="adaptive-mobile">
+                    <div class="well page active bs-component page-results">
+                        <div if.bind="challenge">
+                            Your distance: ${challenge.distance} m
+                        </div>
+                        <div>
+                            <table class="table table-striped table-hover ">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr repeat.for="item of results">
+                                    ${item}
+                                    <td>${item.place}</td>
+                                    <td>${item.name}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

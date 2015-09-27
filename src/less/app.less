@@ -1,13 +1,16 @@
 @import "../../node_modules/bootstrap/less/variables";
 @import "variables";
+
 body {
   background: @body-bg;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .header-panel {
-  background: @body-bg center no-repeat  url("../images/logo.png");
+  background: @body-bg center no-repeat url("../images/logo.png");
   background-size: 35%;
   background-position-y: 80px;
   background-position-x: 345px;
@@ -28,10 +31,12 @@ body {
     font-size: 42px;
   }
 }
+
 .header-panel div {
   position: relative;
   height: 100%;
 }
+
 .header-panel h1 {
   color: #FFF;
   font-size: 200pt;
@@ -47,11 +52,13 @@ body {
   overflow: auto;
   padding: 0;
 }
+
 .menu, .menu * {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
+
 .menu ul {
   padding: 0;
   margin: 7px 0;
@@ -61,6 +68,7 @@ body {
   cursor: default;
   user-select: none;
 }
+
 .menu ul li {
   list-style: none;
   padding: 20px 0 20px 50px;
@@ -68,18 +76,22 @@ body {
   font-weight: normal;
   cursor: pointer;
 }
+
 .menu ul li.active {
   background-color: #dedede;
   position: relative;
 }
+
 .menu ul li a {
   color: rgb(51, 51, 51);
   text-decoration: none;
 }
+
 .pages {
   padding: 0;
   overflow: auto;
 }
+
 .pages > div {
   padding: 0 5px;
 }
@@ -99,6 +111,8 @@ body {
   display: none;
   opacity: 0;
   font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page.active {
@@ -108,11 +122,13 @@ body {
   opacity: 1;
 }
 
-.registration-form {
+.page-run {
   width: 820px;
   height: 600px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.page-registration {
+  width: 320px;
   > .form-horizontal {
     margin-bottom: 10px;
   }
@@ -131,23 +147,28 @@ body {
     font-size: 18px;
   }
 }
+
 @media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
   .header-panel {
     background-position-x: -165px;
   }
 }
+
 @media (max-width: @screen-sm-max) {
   .header-panel {
     height: 90px;
-    background: @body-bg center no-repeat  url("../images/resized_logo.png");
+    background: @body-bg center no-repeat url("../images/resized_logo.png");
     background-position-y: 10px;
   }
+
   .registration-form {
     width: 90%;
   }
+
   .adaptive-mobile {
     width: 100%;
   }
+
   .pages {
     position: inherit;
     bottom: auto;
@@ -157,12 +178,14 @@ body {
     padding-left: @modal-inner-padding;
     width: 100%;
   }
+
   .pages > div {
     padding: 5px 5px 0;
   }
+
   .header-panel {
     height: 90px;
-    background: @body-bg center no-repeat  url("../images/resized_logo.png");
+    background: @body-bg center no-repeat url("../images/resized_logo.png");
     background-position-y: 5px;
   }
 }
