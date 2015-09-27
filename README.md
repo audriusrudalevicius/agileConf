@@ -17,6 +17,7 @@ To run the app, follow these steps.
 
   ```shell
   npm install -g jspm
+  npm install -g jspm-bower-endpoint
   ```
   > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm registry config github` and following the prompts. If you choose to authorize jspm by an access token instead of giving your password (see GitHub `Settings > Personal Access Tokens`), `public_repo` access for the token is required.
 5. Install the client-side dependencies with jspm:
@@ -25,29 +26,18 @@ To run the app, follow these steps.
   jspm install -y
   ```
   >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-6. Install bower command line:
-
-  ```shell
-  npm install -g bower
-  ```
-  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-7. Install Typescript typings
+6. Install Typescript typings
 
   ```shell
   tsd install
   ```
-8. Install bower dependencies
-
-   ```shell
-   bower install
-   ```
-9. To run the app, execute the following command:
+7. To run the app, execute the following command:
 
   ```shell
   gulp watch
   ```
 
-10. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
+8. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
 
 
 ## Bundling
