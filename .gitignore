@@ -4,4 +4,7 @@ bower_components
 .idea
 .DS_STORE
 /dist
-build/reports
+gulp/reports
+build/
+tsd_typings/
+agileConf.egg-info/

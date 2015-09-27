@@ -106,3 +106,9 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
   ```shell
   gulp e2e
   ```
+
+## Install py dependencies
+
+ ```shell
+ python setup.py install -v -n
+ ```

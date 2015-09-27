@@ -1,7 +1,13 @@
 import {Router} from 'aurelia-router';
+import {BikeManager} from '../services/BikeManager';
 
 export class App {
+
     router:Router;
+
+    constructor() {
+        BikeManager.init();
+    }
 
     configureRouter(config, router:Router) {
         config.title = 'NFQ Bike Challenge';

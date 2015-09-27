@@ -53,7 +53,7 @@ export class Challenge {
     }
 
     public set speed(value:number) {
-        this._speed = value;
+        this._speed = Math.round(value);
     }
 
     public get timeLeft():number {

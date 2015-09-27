@@ -44,10 +44,20 @@ System.config({
     "core-js": "npm:core-js@1.1.4",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "jquery": "bower:jquery@2.1.4",
+    "jquery-circle-progress": "bower:jquery-circle-progress@1.1.3",
+    "jquery-knob": "bower:jquery-knob@1.2.11",
     "slimScroll": "bower:slimScroll@1.3.6",
+    "sockjs": "bower:sockjs@0.3.4",
     "text": "github:systemjs/plugin-text@0.0.2",
     "bower:bootstrap-material-design@0.3.0": {
       "css": "github:systemjs/plugin-css@0.1.18",
+      "jquery": "bower:jquery@2.1.4"
+    },
+    "bower:jquery-circle-progress@1.1.3": {
+      "jquery": "bower:jquery@2.1.4"
+    },
+    "bower:jquery-knob@1.2.11": {
       "jquery": "bower:jquery@2.1.4"
     },
     "bower:slimScroll@1.3.6": {
