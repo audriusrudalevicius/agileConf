@@ -1,0 +1,168 @@
+@import "../../node_modules/bootstrap/less/variables";
+@import "variables";
+body {
+  background: @body-bg;
+}
+* {
+  box-sizing: border-box;
+}
+.header-panel {
+  background: @body-bg center no-repeat  url("../images/logo.png");
+  background-size: 35%;
+  background-position-y: 80px;
+  background-position-x: 345px;
+  height: 315px;
+  position: relative;
+  z-index: 3;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+
+  .logo-text {
+    color: #fff;
+    position: relative;
+    padding-top: 207px;
+    text-align: center;
+    font-size: 42px;
+  }
+}
+.header-panel div {
+  position: relative;
+  height: 100%;
+}
+.header-panel h1 {
+  color: #FFF;
+  font-size: 200pt;
+  font-weight: 400;
+  position: absolute;
+  bottom: 10px;
+  padding-left: 150px;
+  user-select: none;
+}
+
+.menu {
+  background-color: @menu-color;
+  overflow: auto;
+  padding: 0;
+}
+.menu, .menu * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.menu ul {
+  padding: 0;
+  margin: 7px 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  user-select: none;
+}
+.menu ul li {
+  list-style: none;
+  padding: 20px 0 20px 50px;
+  font-size: 15px;
+  font-weight: normal;
+  cursor: pointer;
+}
+.menu ul li.active {
+  background-color: #dedede;
+  position: relative;
+}
+.menu ul li a {
+  color: rgb(51, 51, 51);
+  text-decoration: none;
+}
+.pages {
+  padding: 0;
+  overflow: auto;
+}
+.pages > div {
+  padding: 0 5px;
+}
+
+.pages .header {
+  color: rgb(82, 101, 162);
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  letter-spacing: 1.20000004768372px;
+}
+
+.page {
+  transform: translateY(1080px);
+  transition: transform 0 linear;
+  display: none;
+  opacity: 0;
+  font-size: 16px;
+}
+
+.page.active {
+  transform: translateY(0px);
+  transition: all 0.3s ease-out;
+  display: block;
+  opacity: 1;
+}
+
+.registration-form {
+  width: 820px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  > .form-horizontal {
+    margin-bottom: 10px;
+  }
+  > .form-horizontal .first-row {
+  }
+  > .form-horizontal .buttons-row {
+    margin-bottom: 0;
+  }
+  > .form-horizontal .buttons-row button {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 700;
+    background-color: #333;
+  }
+  input.form-control {
+    font-size: 18px;
+  }
+}
+@media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
+  .header-panel {
+    background-position-x: -165px;
+  }
+}
+@media (max-width: @screen-sm-max) {
+  .header-panel {
+    height: 90px;
+    background: @body-bg center no-repeat  url("../images/resized_logo.png");
+    background-position-y: 10px;
+  }
+  .registration-form {
+    width: 90%;
+  }
+  .adaptive-mobile {
+    width: 100%;
+  }
+  .pages {
+    position: inherit;
+    bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: @modal-inner-padding;
+    padding-left: @modal-inner-padding;
+    width: 100%;
+  }
+  .pages > div {
+    padding: 5px 5px 0;
+  }
+  .header-panel {
+    height: 90px;
+    background: @body-bg center no-repeat  url("../images/resized_logo.png");
+    background-position-y: 5px;
+  }
+}

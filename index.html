@@ -1,35 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>NFQ Agile</title>
-  <style>
-    @import url(bower_components/bootstrap/dist/css/bootstrap.css);
-    @import url(bower_components/bootstrap-material-design/dist/css/roboto.css);
-    @import url(bower_components/bootstrap-material-design/dist/css/material-fullpalette.css);
-    @import url(bower_components/bootstrap-material-design/dist/css/ripples.css);
-    @import url(styles/css/app.css);
-    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-  </style>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
-  <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
-  <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-  <script src="https://jspm.io/system@0.16.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-alpha.28/angular2.dev.js"></script>
-  <meta name="viewport" content="width=900px, initial-scale=1">
+    <title>Aurelia</title>
+    <link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.4.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-<div class="container">
-  <div class="header-panel">
-    <div class="logo-text">Bike Challenge</div>
-  </div>
-  <nfq-app class="main-frame container-fluid"></nfq-app>
-</div>
+
+<body aurelia-app="main">
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
 <script>
-  System.config({
-    baseURL: 'scripts/'
-  });
-  System.import('dist/app');
+    System.import('aurelia-bootstrapper');
 </script>
 </body>
 </html>
