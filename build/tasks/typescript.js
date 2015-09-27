@@ -6,6 +6,7 @@ var typescript = require('typescript');
 var sourcemaps = require('gulp-sourcemaps');
 
 var tsProject = ts.createProject({
+    experimentalDecorators: true,
     declaration: true,
     noExternalResolve: true,
     typescript: typescript,
@@ -16,7 +17,7 @@ var tsProject = ts.createProject({
 gulp.task('build-ts', function() {
     var tsResult = gulp.src([paths.ts, paths.ts_tsd])
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject));
+        .pipe(ts(tsProject, undefined, ts.reporter.longReporter()));
 
     return merge([ // Merge the two output streams, so this task is finished when the IO of both operations are done.
         tsResult.dts

@@ -52,6 +52,15 @@ You can also unbundle using the command bellow:
   gulp unbundle
   ```
 
+## Adding dependencies
+
+Add Bower dependency
+
+ ```shell
+ jspm install bower:slimScroll
+ ```
+ >**Note:** It automatically saves it
+
 ## Running The Unit Tests
 
 To run the unit tests, first ensure that you have followed the steps above in order to install all dependencies and successfully build the library. Once you have done that, proceed with these additional steps:

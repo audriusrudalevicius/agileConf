@@ -44,9 +44,13 @@ System.config({
     "core-js": "npm:core-js@1.1.4",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "slimScroll": "bower:slimScroll@1.3.6",
     "text": "github:systemjs/plugin-text@0.0.2",
     "bower:bootstrap-material-design@0.3.0": {
       "css": "github:systemjs/plugin-css@0.1.18",
+      "jquery": "bower:jquery@2.1.4"
+    },
+    "bower:slimScroll@1.3.6": {
       "jquery": "bower:jquery@2.1.4"
     },
     "github:aurelia/animator-css@0.16.0": {
