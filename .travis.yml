@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "0.12"
+before_script:
+  - npm install
+  - npm install -g gulp
+  - npm install -g jspm
+  - npm install -g jspm-bower-endpoint
+  - npm install -g karma-cli
+  - npm install -g tsd
+  - jspm install -y
+  - tsd install
+  - jspm install aurelia-framework
+  - jspm install aurelia-http-client
+  - jspm install aurelia-router
+script: gulp
