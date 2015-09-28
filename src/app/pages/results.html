@@ -8,8 +8,20 @@
                 <div class="adaptive-mobile">
                     <div class="well page active bs-component page-results">
                         <div if.bind="challenge.id">
-                            <div>Your distance: ${challenge.distance} m</div>
-                            <div>Your max speed: ${challenge.maxSpeed | numberFormat:'0.0a'} km/h</div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="score-container score-container-distance">
+                                        <h1 class="title">Your distance</h1>
+                                        <span class="value">${challenge.distance} m</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="score-container score-container-speed">
+                                        <h1 class="title">Your max speed</h1>
+                                        <span class="value">${challenge.maxSpeed | numberFormat:'0.0a'} km/h</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <table class="table table-striped table-hover ">
@@ -29,6 +41,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a class="btn btn-warning btn-lg btn-block" route-href="route: register">New Challange</a>
                     </div>
                 </div>
             </div>
