@@ -48,6 +48,7 @@ System.config({
     "jquery-circle-progress": "bower:jquery-circle-progress@1.1.3",
     "jspm-bower-endpoint": "npm:jspm-bower-endpoint@0.3.2",
     "numeral": "npm:numeral@1.5.3",
+    "sanitize-html": "npm:sanitize-html@1.10.1",
     "slimScroll": "bower:slimScroll@1.3.6",
     "sockjs": "bower:sockjs@0.3.4",
     "text": "github:systemjs/plugin-text@0.0.2",
@@ -672,8 +673,19 @@ System.config({
       "randombytes": "npm:randombytes@2.0.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:dom-serializer@0.1.0": {
+      "domelementtype": "npm:domelementtype@1.1.3",
+      "entities": "npm:entities@1.1.1"
+    },
     "npm:domain-browser@1.1.4": {
       "events": "github:jspm/nodelibs-events@0.1.1"
+    },
+    "npm:domhandler@2.3.0": {
+      "domelementtype": "npm:domelementtype@1.1.3"
+    },
+    "npm:domutils@1.5.1": {
+      "dom-serializer": "npm:dom-serializer@0.1.0",
+      "domelementtype": "npm:domelementtype@1.1.3"
     },
     "npm:duplexify@3.4.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -704,6 +716,12 @@ System.config({
       "net": "github:jspm/nodelibs-net@0.1.2",
       "once": "npm:once@1.3.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:entities@1.0.0": {
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:entities@1.1.1": {
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:es5-ext@0.10.7": {
       "es6-iterator": "npm:es6-iterator@0.1.3",
@@ -901,6 +919,17 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:htmlparser2@3.8.3": {
+      "domelementtype": "npm:domelementtype@1.1.3",
+      "domhandler": "npm:domhandler@2.3.0",
+      "domutils": "npm:domutils@1.5.1",
+      "entities": "npm:entities@1.0.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:http-signature@0.10.1": {
@@ -1399,6 +1428,11 @@ System.config({
     },
     "npm:rx@2.5.3": {
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:sanitize-html@1.10.1": {
+      "htmlparser2": "npm:htmlparser2@3.8.3",
+      "regexp-quote": "npm:regexp-quote@0.0.0",
+      "xtend": "npm:xtend@4.0.0"
     },
     "npm:semver-diff@2.0.0": {
       "semver": "npm:semver@4.3.6"

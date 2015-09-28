@@ -6,6 +6,9 @@ import {Challenge} from '../services/challenge';
 
 @inject(EventAggregator, Router, ChallengeRegistry)
 export class Results {
+    public searchName:string;
+    public place:string;
+    private _results:Challenge[];
     private eventAggregator:EventAggregator;
     private router:Router;
     private registry:ChallengeRegistry;
@@ -24,12 +27,37 @@ export class Results {
     activate(params) {
         try {
             this.challenge = this.registry.findChallenge(params.id);
+            this.place = this.getPlace();
         } catch (e) {
 
         }
     }
 
+    private getPlace():number {
+        if (!this.challenge) {
+            return;
+        }
+        var results = this.results.sort((a, b) => {
+            return (a.distance - b.distance) * -1;
+        });
+        for (var i in results) {
+            if (!results.hasOwnProperty(i)) {
+                continue;
+            }
+            var result = results[i];
+            if (result.id == this.challenge.id) {
+                return (parseInt(i) + 1);
+            }
+        }
+    }
+
     public get results():Challenge[] {
-        return this.registry.getResults();
+        if (this._results == null) {
+            this._results = this.registry.getResults().filter((c) => {
+                return (c.timeLeft <= 0);
+            });
+        }
+
+        return this._results;
     }
 }
