@@ -19,7 +19,7 @@
     "url": "http://github.com/aurelia/skeleton-navigation"
   },
   "scripts": {
-    "preinstall": "npm install -g gulp && npm install -g bower && npm install -g jspm && npm install -g jspm-bower-endpoint && npm install -g karma-cli && npm install -g tsd && jspm install -y && tsd install",
+    "preinstall": "npm install -g gulp && npm install -g bower && npm install -g jspm && npm install -g jspm-bower-endpoint && npm install -g tsd && jspm install -y && tsd install",
     "test": "gulp test",
     "e2e": "gulp serve e2e",
     "start": "gulp serveprod"

@@ -6,6 +6,7 @@ before_script:
   - jspm install aurelia-framework
   - jspm install aurelia-http-client
   - jspm install aurelia-router
+  - npm install -g karma-cli
 script: gulp
 deploy:
   provider: heroku
