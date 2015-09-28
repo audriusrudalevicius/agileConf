@@ -14,8 +14,7 @@
                         </div>
                         <div class="text-center">
                             <h3>Time left:</h3>
-
-                            <h1>${challenge.timeLeft}</h1>
+                            <div id="time"><h1 class="${lastSeconds ? 'time-red' : ''}">${challenge.timeLeft}</h1></div>
                         </div>
                         <div class="col-lg-6 speed text-center">
                             <h3>Speed:</h3>
@@ -23,7 +22,6 @@
                         </div>
                         <div class="col-lg-6 distance text-center">
                             <h3>Distance:</h3>
-
                             <h1>${challenge.distance} m</h1>
                         </div>
 

@@ -195,4 +195,31 @@ body {
     left: 146px;
     top: 113px;
   }
+
+  #time > h1.time-red {
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    color: red;
+  }
+
+  @-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+
+  @-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+
+  @keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
 }

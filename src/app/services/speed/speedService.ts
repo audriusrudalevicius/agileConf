@@ -6,10 +6,14 @@ export class SpeedService {
 
     constructor(provider:ProviderInterface) {
         this.provider = provider;
+        this.provider.connect();
     }
 
     public monitor(callback: (p1: SpeedReceivedEvent) => void) {
-        this.provider.connect();
         this.provider.onSpeedReceived(callback);
+    }
+
+    public stopMonitors() {
+        this.provider.clearCallbacks();
     }
 }
