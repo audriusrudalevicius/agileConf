@@ -92,4 +92,8 @@ export class Challenge {
     public set distance(value:number) {
         this._distance = value;
     }
+
+    public set maxSpeed(value:number) {
+        this._maxSpeed = value;
+    }
 }
