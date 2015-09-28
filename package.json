@@ -7,7 +7,7 @@
   "author": "nfq",
   "main": false,
   "scripts": {
-    "postinstall": "jspm registry create bower jspm-bower-endpoint && jspm install -y && tsd install",
+    "postinstall": "jspm registry create bower jspm-bower-endpoint -y && jspm install -y && tsd install",
     "test": "gulp test",
     "e2e": "gulp serve e2e",
     "start": "gulp serveprod"
