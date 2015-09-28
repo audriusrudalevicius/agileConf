@@ -1,3 +1,7 @@
+# Agile App
+
+[![Build Status](https://travis-ci.org/d3trax/agileConf.svg?branch=master)](https://travis-ci.org/d3trax/agileConf)
+
 ## Running The App
 
 To run the app, follow these steps.
