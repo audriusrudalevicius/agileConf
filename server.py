@@ -33,14 +33,18 @@ def Cast(speed):
 if __name__ == "__main__":
     import logging
     logging.getLogger().setLevel(logging.DEBUG)
-    speedListener = speed.MockedSpeed()
-    #speedListener = speed.Speed()
+
+    if config.MOCK:
+        speedListener = speed.MockedSpeed()
+    else:
+        speedListener = speed.Speed()
+
     BikeChallengeRouter = sockjs.tornado.SockJSRouter(BikeConnection, '/bike')
 
+    speedListener.em().on("speed", Cast)
     th = Thread(target=speedListener.start)
     th.start()
 
-    speedListener.em().on("speed", Cast)
 
     app = tornado.web.Application(
             [(r"/", IndexHandler)] + BikeChallengeRouter.urls

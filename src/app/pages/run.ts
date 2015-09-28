@@ -4,6 +4,7 @@ import {Router} from 'aurelia-router';
 import {ChallengeRegistry} from '../services/challengeRegistry';
 import {Challenge} from '../services/challenge';
 import {BikeManager} from '../services/BikeManager';
+import {Game} from '../services/game';
 import * as $ from "jquery";
 
 require('jquery-circle-progress');
@@ -30,6 +31,7 @@ export class Run {
     activate(params) {
         try {
             this.challenge = this.registry.findChallenge(params.id);
+            let game = new Game();
             BikeManager.speed.monitor((e) => {
                 this.challenge.speed = e.payload.speed;
 

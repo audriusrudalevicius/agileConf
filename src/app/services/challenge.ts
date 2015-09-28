@@ -39,7 +39,6 @@ export class Challenge {
         return this._place;
     }
 
-
     public get distance():number {
         return this._distance;
     }
