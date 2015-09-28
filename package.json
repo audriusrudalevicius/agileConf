@@ -121,5 +121,8 @@
     "bootstrap": "^3.3.5",
     "gulp-connect": "^2.2.0",
     "gulp-less": "^3.0.3"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
