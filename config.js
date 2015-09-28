@@ -47,6 +47,7 @@ System.config({
     "jquery": "bower:jquery@2.1.4",
     "jquery-circle-progress": "bower:jquery-circle-progress@1.1.3",
     "jspm-bower-endpoint": "npm:jspm-bower-endpoint@0.3.2",
+    "numeral": "npm:numeral@1.5.3",
     "slimScroll": "bower:slimScroll@1.3.6",
     "sockjs": "bower:sockjs@0.3.4",
     "text": "github:systemjs/plugin-text@0.0.2",
@@ -1106,6 +1107,9 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "url": "github:jspm/nodelibs-url@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:numeral@1.5.3": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
     "npm:oauth-sign@0.5.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

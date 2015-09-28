@@ -1,12 +1,15 @@
 <template>
     <section class="au-animate">
+        <require from="./../number-format"></require>
+        <require from="./../sort"></require>
+
         <div class="row">
             <div class="pages">
                 <div class="adaptive-mobile">
                     <div class="well page active bs-component page-results">
                         <div if.bind="challenge.id">
                             <div>Your distance: ${challenge.distance} m</div>
-                            <div>Your max speed: ${challenge.maxSpeed} km/h</div>
+                            <div>Your max speed: ${challenge.maxSpeed | numberFormat:'0.0a'} km/h</div>
                         </div>
                         <div>
                             <table class="table table-striped table-hover ">
@@ -18,7 +21,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="au-animate" repeat.for="item of results">
+                                <tr class="au-animate" repeat.for="item of results | sort:{ propertyName: 'distance', direction: 'decending' }">
                                     <td>${$index + 1}</td>
                                     <td>${item.name}</td>
                                     <td>${item.distance}</td>

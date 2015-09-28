@@ -127,6 +127,7 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
  let provider = new MockProvider();
  ```
  >**Note:** This will not need to start any python applications
+
 ## Install py dependencies
 
  ```shell
