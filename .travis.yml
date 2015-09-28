@@ -15,3 +15,6 @@ before_script:
   - jspm install aurelia-http-client
   - jspm install aurelia-router
 script: gulp
+deploy:
+  provider: heroku
+  api_key: "373aee47-beae-48f4-bc83-89df1719ce2f"
