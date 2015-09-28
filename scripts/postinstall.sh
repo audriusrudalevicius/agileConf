@@ -2,7 +2,7 @@
 
 set -e
 
-jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+jspm config registries.github.auth 882b9846a385f451ff0b828804f9d1c22313a8a5
 jspm registry create bower jspm-bower-endpoint -y
 jspm install -y
 tsd install
