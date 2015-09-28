@@ -4,28 +4,17 @@
             <div class="pages">
                 <div class="adaptive-mobile">
                     <div class="well page active bs-component page-run">
-                        <div class="text-center">
-                            <h4>
-                                You have 30 seconds to get your distance.
-                                <br/>
-                                Start when you are ready!
-                            </h4>
-
+                        <div class="row">
+                            <div class="col-lg-6 speed text-center">
+                                <h3>Speed:</h3>
+                                <div id="speed"><h1>${challenge.speed} km/h</h1></div>
+                                <h2>Distance: ${challenge.distance} m</h2>
+                            </div>
+                            <div class="col-lg-6 distance text-center">
+                                <h3>Time left (seconds):</h3>
+                                <div id="time"><h1 class="${lastSeconds ? 'time-red' : ''}">${challenge.timeLeft}</h1></div>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <h3>Time left:</h3>
-                            <div id="time"><h1 class="${lastSeconds ? 'time-red' : ''}">${challenge.timeLeft}</h1></div>
-                        </div>
-                        <div class="col-lg-6 speed text-center">
-                            <h3>Speed:</h3>
-                            <div id="speed"><h1>${challenge.speed} km/h</h1></div>
-                        </div>
-                        <div class="col-lg-6 distance text-center">
-                            <h3>Distance:</h3>
-                            <h1>${challenge.distance} m</h1>
-                        </div>
-
-                        <div><a route-href="route: results; params.bind: {id:challenge.id}">continue</a></div>
                     </div>
                 </div>
             </div>

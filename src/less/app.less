@@ -124,7 +124,10 @@ body {
 
 .page-run {
   width: 820px;
-  height: 600px;
+}
+
+.page-results {
+  width: 920px;
 }
 
 .page-registration {
@@ -196,6 +199,10 @@ body {
     top: 113px;
   }
 
+  #time > h1 {
+      font-size: 150px;
+  }
+
   #time > h1.time-red {
     animation-name: blinker;
     animation-duration: 1s;
@@ -222,4 +229,50 @@ body {
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
   }
+}
+
+.container .well.page-run {
+  padding-bottom: 29px;
+}
+
+.score-container {
+  color: #fff;
+  margin-bottom: 20px;
+  padding: 10px 10px 10px 90px;
+  text-align: center;
+
+  .title {
+    margin: 0;
+    font-size: 30px;
+  }
+
+  .value {
+    font-size: 38px;
+    font-weight: bold;
+  }
+
+  &:before {
+    position: absolute;
+    left: 30px;
+    font: normal normal normal 80px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.score-container-distance {
+  background-color: #1abc9c;
+
+  &:before {
+    content: "\f206";
+  }
+}
+
+.score-container-speed {
+  &:before {
+    content: "\f1d8";
+  }
+
+  background-color: #e74c3c;
 }
