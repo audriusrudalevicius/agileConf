@@ -3,10 +3,12 @@ node_js:
   - "0.12"
 before_script:
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-  - npm install
+  - jspm registry create bower jspm-bower-endpoint -y
+  - jspm install -y
   - jspm install aurelia-framework
   - jspm install aurelia-http-client
   - jspm install aurelia-router
+  - tsd install
   - npm install -g karma-cli
 script: gulp
 deploy:
