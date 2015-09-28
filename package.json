@@ -7,7 +7,7 @@
   "author": "nfq",
   "main": false,
   "scripts": {
-    "preinstall": "npm install -g gulp && npm install -g bower && npm install jspm && npm install jspm-bower-endpoint && jspm registry config bower && npm install -g tsd && jspm install -y && tsd install",
+    "postinstall": "jspm registry config bower && jspm install -y && tsd install",
     "test": "gulp test",
     "e2e": "gulp serve e2e",
     "start": "gulp serveprod"
@@ -107,6 +107,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
+    "bower": "^1.5.3",
     "gulp-connect": "^2.2.0",
     "gulp-less": "^3.0.3"
   },
