@@ -1,3 +1,4 @@
+import {MockProvider} from '../services/speed/provider/mockProvider';
 import {SocksJsProvider} from '../services/speed/provider/socksJsProvider';
 import {SpeedService} from '../services/speed/speedService';
 

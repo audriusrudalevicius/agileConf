@@ -57,7 +57,7 @@ export class ChallengeRegistry {
         }
     }
 
-    private save() {
+    public save() {
         localStorage.setItem('challenges', JSON.stringify(this.challenges));
     }
 }

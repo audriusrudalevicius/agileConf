@@ -4,7 +4,7 @@ setup(
     name='agileConf',
     version='1.0.0',
     packages=['server'],
-    install_requires=['ant', 'sockjs-tornado', 'pymitter'],
+    install_requires=['sockjs-tornado', 'pymitter'],
     url='',
     license='',
     author='audrius',
