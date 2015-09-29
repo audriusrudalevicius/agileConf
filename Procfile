@@ -1,1 +1,1 @@
-gulp serveprod
+web: gulp serveprod
