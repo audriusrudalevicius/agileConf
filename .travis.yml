@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "0.12"
-script: gulp
+script: npm run test
 deploy:
   provider: heroku
   api_key: "373aee47-beae-48f4-bc83-89df1719ce2f"
