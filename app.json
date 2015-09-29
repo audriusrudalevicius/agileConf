@@ -8,12 +8,15 @@
   "logo": "https://raw.githubusercontent.com/d3trax/agileConf/master/src/images/resized_logo.png",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "chmod +x scripts/postinstall.sh && scripts/postinstall.sh"
+    "postdeploy": "npm install"
   },
   "env": {
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
       "value": "1"
+    },
+    "GITHUB_AUTH_TOKEN": {
+      "required": true
     }
   },
   "image": "heroku/nodejs",
