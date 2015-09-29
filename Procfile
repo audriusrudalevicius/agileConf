@@ -1,1 +1,1 @@
-gulp serveprod
+node_modules/gulp/bin/gulp.js serveprod
