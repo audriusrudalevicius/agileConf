@@ -9,7 +9,7 @@ export class BikeManager {
     }
 
     public static init() {
-        let provider = new MockProvider();
+        let provider = new SocksJsProvider();
         this._speed = new SpeedService(provider);
     }
 
