@@ -14,7 +14,6 @@ export class ChallengeRegistry {
         var challenge = Challenge.createNew(name, this.challenges.length);
         this.challenges.push(challenge);
 
-        this.save();
         return challenge;
     }
 

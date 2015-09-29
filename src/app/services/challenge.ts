@@ -5,28 +5,30 @@ export class Challenge {
     private _name:string;
     private _distance:number;
     private _maxSpeed:number;
+    private _events:number;
     private _speed:number;
     private _timeLeft:number;
     private _started:boolean;
     private _revolutionsStarted:number;
     private _revolutionsEnded:number;
 
-    constructor(id:number, name:string, distance:number, maxSpeed:number, speed:number, timeLeft:number) {
+    constructor(id:number, name:string, distance:number, maxSpeed:number, speed:number, timeLeft:number, events:number) {
         this._id = id;
         this._name = name;
         this._distance = distance;
         this._maxSpeed = maxSpeed;
         this._speed = speed;
         this._timeLeft = timeLeft;
+        this._events = events;
     }
 
     public static createNew(name:string, id:number):Challenge {
         //todo remove random
-        return new Challenge(id, name, 0, 0, 0, GameTime);
+        return new Challenge(id, name, 0, 0, 0, GameTime, 0);
     }
 
     public static unmarshal(obj:any):Challenge {
-        return new Challenge(obj._id, obj._name, obj._distance, obj._maxSpeed, 0, obj._timeLeft);
+        return new Challenge(obj._id, obj._name, obj._distance, obj._maxSpeed, 0, obj._timeLeft, obj._events);
     }
 
     public markAsStarted() {
@@ -95,5 +97,13 @@ export class Challenge {
 
     public set maxSpeed(value:number) {
         this._maxSpeed = value;
+    }
+
+    public get events():number {
+        return this._events;
+    }
+
+    public set events(value:number) {
+        this._events = value;
     }
 }

@@ -44,14 +44,10 @@ export class Run {
                 this.router.navigate('/results/' + this.challenge);
                 return;
             }
-            var eventsCount = 0;
             // Start monitor for seed
             BikeManager.speed.monitor((e) => {
                 // Track game
-                if (eventsCount > 2) {
-                    this.game.track(this.challenge, e);
-                }
-                eventsCount++;
+                this.game.track(this.challenge, e);
 
                 // Update ui last seconds class
                 this.lastSeconds = (this.challenge.timeLeft < lastSeconds);
@@ -64,7 +60,7 @@ export class Run {
             });
         } catch (e) {
             console.error(e);
-            this.router.navigate('/');
+            this.router.navigate('register');
         }
     }
 

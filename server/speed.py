@@ -31,6 +31,7 @@ class SpeedEvent():
 class SpeedListener(event.EventCallback):
     lastTime = None
     lastRevolutions = None
+    connectedSent = False
 
     def calcSpeed(self, time, revolutions):
         if self.lastTime is None:
@@ -64,6 +65,11 @@ class SpeedListener(event.EventCallback):
             speed = self.calcSpeed(eventTime, revolutions)
 
             logging.debug('Got event Revolutions: %s Speed: %s', revolutions, speed)
+
+            if self.connectedSent == False:
+                self.ee.emit("connected", True)
+                self.connectedSent = True
+
 
             self.ee.emit("speed", SpeedEvent(revolutions, speed))
 

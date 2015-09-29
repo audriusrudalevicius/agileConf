@@ -1,10 +1,12 @@
 import * as $ from "jquery";
 import {ProviderInterface} from './providerInterface';
 import {SpeedReceivedEvent, SpeedInformationDTO} from './speedReceivedEvent';
+import {ConnectedEvent} from './connectedEvent';
 
 export class MockProvider implements ProviderInterface {
 
     private messageCallbacks:JQueryCallback = $.Callbacks();
+    private connectedCallbacks:JQueryCallback = $.Callbacks();
 
     onSpeedReceived(callback:(p1:SpeedReceivedEvent)=>void) {
         this.messageCallbacks.add(callback);
@@ -20,6 +22,9 @@ export class MockProvider implements ProviderInterface {
             this.messageCallbacks.fire(new SpeedReceivedEvent(seedData), this.messageCallbacks);
             revs++;
         }, 2000);
+        setTimeout(() => {
+            this.connectedCallbacks.fire(new ConnectedEvent(), this.connectedCallbacks);
+        }, 1500);
     }
 
     private static getRandomInt(min, max):number {
@@ -30,4 +35,7 @@ export class MockProvider implements ProviderInterface {
         this.messageCallbacks.empty();
     }
 
+    onConnected(callback:(p1:ConnectedEvent, p1:JQueryCallback)=>void) {
+        this.connectedCallbacks.add(callback);
+    }
 }

@@ -31,6 +31,12 @@ export class Game {
         }
 
         challenge.speed = speed;
+
+        challenge.events++;
+        if (challenge.events < 4) {
+            return;
+        }
+
         challenge.revolutionsEnded = event.payload.revolutions;
 
         if (challenge.revolutionsStarted != null) {

@@ -21,12 +21,13 @@ export class SpeedService {
         var fired = false;
         var c = (e, cb:JQueryCallback) => {
             if (!fired) {
+                console.log('Connected');
                 f.call(window);
                 fired = true;
                 cb.remove(c);
             }
         };
 
-        this.provider.onSpeedReceived(c);
+        this.provider.onConnected(c);
     }
 }

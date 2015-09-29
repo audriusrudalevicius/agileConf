@@ -29,9 +29,6 @@ export class Home {
             this.eventAggregator.publish(
                 new NewChallengeEvent(this.name)
             );
-
-            return;
         }
-        alert('Enter your name');
     }
 }

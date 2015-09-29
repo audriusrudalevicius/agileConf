@@ -26,6 +26,10 @@ class BikeConnection(sockjs.tornado.SockJSConnection):
     def on_close(self):
         self.clients.remove(self)
 
+def CastConnected(c):
+    logging.debug('Broadcasting speed to public')
+    BikeChallengeRouter.broadcast(BikeConnection.clients, {'connected': True})
+
 def Cast(speed):
     logging.debug('Broadcasting speed to public')
     BikeChallengeRouter.broadcast(BikeConnection.clients, {'speed': speed.getSpeed(), 'revolutions':speed.getRev()})
@@ -42,6 +46,7 @@ if __name__ == "__main__":
     BikeChallengeRouter = sockjs.tornado.SockJSRouter(BikeConnection, '/bike')
 
     speedListener.em().on("speed", Cast)
+    speedListener.em().on("connected", CastConnected)
     th = Thread(target=speedListener.start)
     th.start()
 
