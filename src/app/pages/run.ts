@@ -65,7 +65,7 @@ export class Run {
         // jquery attachments
         this.speedWidget = $('#speed').circleProgress({
             value: 0,
-            size: 200,
+            size: 160,
             fill: {
                 gradient: ["#FF6100"]
             }

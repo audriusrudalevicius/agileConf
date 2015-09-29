@@ -191,8 +191,9 @@ body {
 .page-run {
   #speed > h1 {
     position: absolute;
-    left: 146px;
-    top: 113px;
+    left: 152px;
+    top: 98px;
+    font-size: 30px;
   }
 
   #time > h1 {
@@ -224,6 +225,10 @@ body {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
+  }
+
+  h1.distance {
+    font-weight: bold;
   }
 }
 
@@ -289,33 +294,39 @@ body {
   margin: 40px 0;
 }
 
-.table-results {
+.table-results-container {
+  max-height: 300px;
+  overflow-y: scroll;
 
-  width: 70%;
-  margin: 0 auto;
-
-  > tbody > tr > td {
-    border-width: 0;
-  }
-
-  tbody > tr:nth-child(1) {
-    font-size: 32px;
-  }
-
-  tbody > tr:nth-child(2) {
+  .table-results {
+    width: 100%;
+    margin: 0 auto;
     font-size: 28px;
-  }
 
-  tbody > tr:nth-child(3) {
-    font-size: 24px;
-  }
+    > tbody > tr > td {
+      border-width: 0;
+    }
 
-  .col-place {
-    width: 50px;
-    text-align: right;
-  }
+    tbody > tr:nth-child(1) {
+      font-size: 32px;
+    }
 
-  .col-distance {
-    text-align: right;
+    tbody > tr:nth-child(2) {
+      font-size: 28px;
+    }
+
+    tbody > tr.current {
+      background-color: #1abc9c;
+      color: #fff;
+    }
+
+    .col-place {
+      width: 50px;
+      text-align: right;
+    }
+
+    .col-distance {
+      text-align: right;
+    }
   }
 }
