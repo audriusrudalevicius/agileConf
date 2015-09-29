@@ -1,0 +1,25 @@
+{
+  "name": "Agile app",
+  "description": "",
+  "keywords": [
+  ],
+  "website": "",
+  "repository": "https://github.com/d3trax/agileConf",
+  "logo": "https://raw.githubusercontent.com/d3trax/agileConf/master/src/images/resized_logo.png",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "chmod +x scripts/postinstall.sh && scripts/postinstall.sh"
+  },
+  "env": {
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "1"
+    }
+  },
+  "image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "https://github.com/ddollar/heroku-buildpack-multi.git"
+    }
+  ]
+}
