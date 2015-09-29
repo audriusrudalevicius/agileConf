@@ -8,6 +8,9 @@ before_install:
 script: npm run test
 deploy:
   provider: heroku
-  api_key: "373aee47-beae-48f4-bc83-89df1719ce2f"
+  api_key:
+    secure: ZTFuct58wXXxThTNoM4yfB222QVjUwcWr6J+tWHdaDZ3RCHJKuvNdza/M1wnRfEeTuw43plZHXkUnm4mkYCwCa/FeVOyqI41jB9jNaV74p+A0pGLAS9Q+stjZ6eVLArBWa0xqV1iiefjXe6no6fyGBBPv0Wpi4XBF/Cr8qFlNBeq6U8ue4pXde3T3loWs+nk9V4o1TeresfvULH/oCqk3dcmhNgzc2Dpm
   app: calm-hamlet-4885
+  on:
+    repo: d3trax/agileConf
   skip_cleanup: true
