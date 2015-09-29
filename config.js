@@ -48,6 +48,7 @@ System.config({
     "jquery-circle-progress": "bower:jquery-circle-progress@1.1.3",
     "jspm-bower-endpoint": "npm:jspm-bower-endpoint@0.3.2",
     "numeral": "npm:numeral@1.5.3",
+    "perfect-scrollbar": "npm:perfect-scrollbar@0.6.5-1",
     "sanitize-html": "npm:sanitize-html@1.10.1",
     "slimScroll": "bower:slimScroll@1.3.6",
     "sockjs": "bower:sockjs@0.3.4",

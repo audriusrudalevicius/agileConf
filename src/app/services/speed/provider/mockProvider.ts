@@ -17,8 +17,7 @@ export class MockProvider implements ProviderInterface {
                 revolutions: revs,
                 speed: MockProvider.getRandomInt(1, 12)
             };
-            console.debug("New speed received", seedData);
-            this.messageCallbacks.fire(new SpeedReceivedEvent(seedData));
+            this.messageCallbacks.fire(new SpeedReceivedEvent(seedData), this.messageCallbacks);
             revs++;
         }, 2000);
     }

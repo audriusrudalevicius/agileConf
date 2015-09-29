@@ -16,4 +16,17 @@ export class SpeedService {
     public stopMonitors() {
         this.provider.clearCallbacks();
     }
+
+    public onSignal(f:Function) {
+        var fired = false;
+        var c = (e, cb:JQueryCallback) => {
+            if (!fired) {
+                f.call(window);
+                fired = true;
+                cb.remove(c);
+            }
+        };
+
+        this.provider.onSpeedReceived(c);
+    }
 }

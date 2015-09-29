@@ -4,6 +4,7 @@ import {ChallengeSubscriber} from '../services/challengeSubscriber';
 import {Challenge} from '../services/challenge';
 import {NewChallengeEvent} from '../services/newChallengeEvent';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {BikeManager} from '../services/BikeManager';
 
 @inject(EventAggregator, ChallengeSubscriber)
 export class Home {

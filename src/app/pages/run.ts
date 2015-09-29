@@ -40,10 +40,18 @@ export class Run {
         try {
             this.challenge = this.registry.findChallenge(params.id);
 
+            if (this.challenge.timeLeft <= 0 && this.challenge.distance) {
+                this.router.navigate('/results/' + this.challenge);
+                return;
+            }
+            var eventsCount = 0;
             // Start monitor for seed
             BikeManager.speed.monitor((e) => {
                 // Track game
-                this.game.track(this.challenge, e);
+                if (eventsCount > 2) {
+                    this.game.track(this.challenge, e);
+                }
+                eventsCount++;
 
                 // Update ui last seconds class
                 this.lastSeconds = (this.challenge.timeLeft < lastSeconds);

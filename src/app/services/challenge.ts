@@ -26,7 +26,7 @@ export class Challenge {
     }
 
     public static unmarshal(obj:any):Challenge {
-        return new Challenge(obj._id, obj._name, obj._distance, obj._maxSpeed, 0, 0);
+        return new Challenge(obj._id, obj._name, obj._distance, obj._maxSpeed, 0, obj._timeLeft);
     }
 
     public markAsStarted() {

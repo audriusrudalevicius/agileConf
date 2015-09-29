@@ -2,17 +2,20 @@ import {inject} from 'aurelia-framework';
 import {Challenge} from '../services/challenge';
 import {GameFinishedEvent} from '../services/gameFinishedEvent';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {ChallengeRegistry} from '../services/challengeRegistry';
 
 const CIRCUMFERENCE = 0.3 * 2 * 3.14;
 
-@inject(EventAggregator)
+@inject(EventAggregator, ChallengeRegistry)
 export class Game {
 
     private timer;
     private em:EventAggregator;
+    private challengeRegistry:ChallengeRegistry;
 
-    constructor(em:EventAggregator) {
+    constructor(em:EventAggregator, challengeRegistry:ChallengeRegistry) {
         this.em = em;
+        this.challengeRegistry = challengeRegistry;
     }
 
     public track(challenge:Challenge, event) {
@@ -38,7 +41,6 @@ export class Game {
         if (challenge.started) {
             return;
         }
-
         challenge.markAsStarted();
         challenge.revolutionsStarted = event.payload.revolutions;
         this.startGame(challenge);

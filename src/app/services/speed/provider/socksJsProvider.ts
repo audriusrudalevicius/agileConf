@@ -11,7 +11,6 @@ export class SocksJsProvider implements ProviderInterface {
         let conn = new SockJS('http://localhost:1234/bike');
 
         conn.onmessage = (e) => {
-            console.debug("New speed received", e.data);
             this.messageCallbacks.fire(new SpeedReceivedEvent(<SpeedInformationDTO>e.data));
         };
 
