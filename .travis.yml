@@ -8,8 +8,7 @@ before_install:
 script: gulp build
 deploy:
   provider: heroku
-  api_key:
-    secure: "373aee47-beae-48f4-bc83-89df1719ce2f"
+  api_key: "373aee47-beae-48f4-bc83-89df1719ce2f"
   app: calm-hamlet-4885
   on:
     repo: d3trax/agileConf
