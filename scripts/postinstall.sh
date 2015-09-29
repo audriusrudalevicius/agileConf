@@ -6,3 +6,4 @@ jspm registry create bower jspm-bower-endpoint -y
 jspm install -y
 tsd install
 npm install -g karma-cli
+npm install -g gulp
