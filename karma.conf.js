@@ -8,9 +8,6 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jspm', 'jasmine'],
 
     jspm: {
@@ -21,7 +18,6 @@ module.exports = function(config) {
       }
     },
 
-
     // list of files / patterns to load in the browser
     files: [],
 
@@ -30,13 +26,11 @@ module.exports = function(config) {
     exclude: [
     ],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'test/**/*.js': ['babel'],
-      'src/**/*.js': ['babel'],
-      'src/**/*.ts': ['typescript']
+      'src/**/*.js': ['babel']
     },
     'babelPreprocessor': {
       options: {
@@ -47,27 +41,6 @@ module.exports = function(config) {
           "es7.decorators",
           "es7.classProperties"
         ]
-      }
-    },
-    typescriptPreprocessor: {
-      // options passed to the typescript compiler
-      options: {
-        experimentalDecorators: true,
-        sourceMap: false, // (optional) Generates corresponding .map file.
-        target: 'ES5', // (optional) Specify ECMAScript target version: 'ES3' (default), or 'ES5'
-        module: 'amd', // (optional) Specify module code generation: 'commonjs' or 'amd'
-        noImplicitAny: true, // (optional) Warn on expressions and declarations with an implied 'any' type.
-        noResolve: true, // (optional) Skip resolution and preprocessing.
-        removeComments: true, // (optional) Do not emit comments to output.
-        concatinateOutput: false // (optional) Concatenate and emit output to single file. By default true if module option is omited, otherwise false.
-      },
-      // extra typing definitions to pass to the compiler (globs allowed)
-      typings: [
-        'src/typings/tsd.d.ts'
-      ],
-      // transforming the filenames
-      transformPath: function(path) {
-        return path.replace(/\.ts$/, '.js');
       }
     },
 
@@ -96,7 +69,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'ChromeCanary'],
+    browsers: ['Chrome'],
 
     customLaunchers: {
       Chrome_travis_ci: {

@@ -1,4 +1,4 @@
-import {App} from '../../src/app';
+import {App} from '../../src/app/pages/app.ts';
 
 class RouterStub {
   configure(handler) {
