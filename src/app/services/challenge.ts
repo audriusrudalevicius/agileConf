@@ -1,4 +1,4 @@
-const GameTime = 30;
+export const GameTime = 30;
 
 export class Challenge {
     private _id:number;

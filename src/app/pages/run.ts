@@ -3,7 +3,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {Router} from 'aurelia-router';
 import {ChallengeRegistry} from '../services/challengeRegistry';
 import {GameSubscriber} from '../services/gameSubscriber';
-import {Challenge} from '../services/challenge';
+import {Challenge, GameTime} from '../services/challenge';
 import {BikeManager} from '../services/BikeManager';
 import {Game} from '../services/game';
 import * as $ from "jquery";
@@ -41,8 +41,14 @@ export class Run {
             this.challenge = this.registry.findChallenge(params.id);
 
             if (this.challenge.timeLeft <= 0 && this.challenge.distance) {
-                this.router.navigate('/results/' + this.challenge);
+                this.router.navigate('/results/' + this.challenge.id);
                 return;
+            }
+
+            // Give another try
+            if (this.challenge.timeLeft <= 0 && !this.challenge.distance) {
+                this.challenge.timeLeft = GameTime;
+                this.challenge.started = false;
             }
             // Start monitor for seed
             BikeManager.speed.monitor((e) => {

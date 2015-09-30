@@ -11,8 +11,12 @@ export class ChallengeRegistry {
     }
 
     public registerNew(name:string):Challenge {
-        var challenge = Challenge.createNew(name, this.challenges.length);
-        this.challenges.push(challenge);
+        try {
+            var challenge = this.findChallengeByName(name);
+        } catch (e) {
+            var challenge = Challenge.createNew(name, this.challenges.length);
+            this.challenges.push(challenge);
+        }
 
         return challenge;
     }
@@ -21,7 +25,7 @@ export class ChallengeRegistry {
         return this.challenges;
     }
 
-    public findChallenge(id:number) {
+    public findChallenge(id:number):Challenge {
         for (var i in this.challenges) {
             if (!this.challenges.hasOwnProperty(i)) {
                 continue;
@@ -35,24 +39,53 @@ export class ChallengeRegistry {
         throw new Error('Challenge not found');
     }
 
+    public findChallengeByName(name:string):Challenge {
+        for (var i in this.challenges) {
+            if (!this.challenges.hasOwnProperty(i)) {
+                continue;
+            }
+            var challenge = this.challenges[i];
+            if (challenge.name == name) {
+                return challenge;
+            }
+        }
+
+        throw new Error('Challenge not found');
+    }
+
     private load() {
+        console.log('Loading data');
         this.challenges = [];
         let loaded = localStorage.getItem('challenges');
-        if (loaded) {
-            try {
-                let challenges:Object[] = JSON.parse(loaded);
-                if (challenges) {
-                    for (var i in challenges) {
-                        if (!challenges.hasOwnProperty(i)) {
-                            continue;
+        if (!loaded) {
+            console.log('Data not found');
+            return;
+        }
+        try {
+            let challenges:Object[] = JSON.parse(loaded);
+            if (challenges) {
+                for (var i in challenges) {
+                    if (!challenges.hasOwnProperty(i)) {
+                        continue;
+                    }
+                    var item = challenges[i];
+                    try {
+                        let ch = Challenge.unmarshal(item);
+                        try {
+                            let dup = this.findChallenge(ch.id);
+                            console.error("Found duplicated", item, dup);
+                        } catch (e1) {
+                            this.challenges.push(ch);
                         }
-                        var item = challenges[i];
-                        this.challenges.push(Challenge.unmarshal(item));
+                    } catch (e2) {
+                        console.error("Failed load", item, e2);
                     }
                 }
-            } catch (e) {
-                this.challenges = [];
+                console.log('Data Loaded with count: ', challenges.length, challenges);
             }
+        } catch (e) {
+            console.log('Error loading data', e);
+            this.challenges = [];
         }
     }
 
