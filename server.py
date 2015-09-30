@@ -47,9 +47,6 @@ if __name__ == "__main__":
 
     speedListener.em().on("speed", Cast)
     speedListener.em().on("connected", CastConnected)
-    th = Thread(target=speedListener.start)
-    th.start()
-
 
     app = tornado.web.Application(
             [(r"/", IndexHandler)] + BikeChallengeRouter.urls
@@ -59,6 +56,7 @@ if __name__ == "__main__":
     logging.info('Server started on localhost: %s ' % config.PORT)
 
     try:
+        speedListener.start()
         tornado.ioloop.IOLoop.instance().start()
     finally:
         logging.info('Stopping device')

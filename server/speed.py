@@ -31,7 +31,6 @@ class SpeedEvent():
 class SpeedListener(event.EventCallback):
     lastTime = None
     lastRevolutions = None
-    connectedSent = False
 
     def calcSpeed(self, time, revolutions):
         if self.lastTime is None:
@@ -65,11 +64,6 @@ class SpeedListener(event.EventCallback):
             speed = self.calcSpeed(eventTime, revolutions)
 
             logging.debug('Got event Revolutions: %s Speed: %s', revolutions, speed)
-
-            if self.connectedSent == False:
-                self.ee.emit("connected", True)
-                self.connectedSent = True
-
 
             self.ee.emit("speed", SpeedEvent(revolutions, speed))
 
@@ -145,21 +139,14 @@ class Speed():
 
         self.evm = event.EventMachine(driver)
 
-
-        try:
-            # Time to go live
-            self.channel.open()
-
-            logging.info("Listening for device events...")
-            while self.running:
-                time.sleep(60)
-        finally:
-            # Shutdown channel
-            self.channel.close()
-            self.channel.unassign()
-
-            # Shutdown
-            self.antnode.stop()
+        self.channel.open()
+        self.ee.emit("connected", True)
 
     def stop(self):
-        self.running = False
+        logging.info("Closing devices finally")
+        # Shutdown channel
+        self.channel.close()
+        self.channel.unassign()
+
+        # Shutdown
+        self.antnode.stop()
