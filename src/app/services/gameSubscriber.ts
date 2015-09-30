@@ -32,7 +32,7 @@ export class GameSubscriber {
                 this.router.navigate('/results/' + payload.challenge.id);
             }
 
-            this.router.navigate('/results/');
+            this.router.navigate('results');
         });
     }
 
