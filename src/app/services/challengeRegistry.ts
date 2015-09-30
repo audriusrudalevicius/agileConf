@@ -5,20 +5,16 @@ import {autoinject} from 'aurelia-framework';
 @autoinject
 export class ChallengeRegistry {
     private challenges:Challenge[];
+    private currentChallenge:Challenge[];
 
     constructor() {
         this.load();
     }
 
     public registerNew(name:string):Challenge {
-        try {
-            var challenge = this.findChallengeByName(name);
-        } catch (e) {
-            var challenge = Challenge.createNew(name, this.challenges.length);
-            this.challenges.push(challenge);
-        }
+        this.currentChallenge = Challenge.createNew(name, this.challenges.length);
 
-        return challenge;
+        return this.currentChallenge;
     }
 
     public getResults():Challenge[] {
@@ -87,6 +83,10 @@ export class ChallengeRegistry {
             console.log('Error loading data', e);
             this.challenges = [];
         }
+    }
+
+    public add(challenge:Challenge) {
+        this.challenges.push(challenge);
     }
 
     public save() {

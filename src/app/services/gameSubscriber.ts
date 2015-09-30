@@ -25,8 +25,24 @@ export class GameSubscriber {
     subscribe() {
         this.eventAggregator.subscribe(GameFinishedEvent, payload => {
             BikeManager.speed.stopMonitors();
-            this.registry.save();
-            this.router.navigate('/results/' + payload.challenge.id);
+
+            if (this.isBestResult(payload.challenge)) {
+                this.registry.add(payload.challenge);
+                this.registry.save();
+                this.router.navigate('/results/' + payload.challenge.id);
+            }
+
+            this.router.navigate('/results/');
         });
+    }
+
+    isBestResult(currentChallenge:Challenge) {
+        try {
+            var previousChallenge = this.registry.findChallengeByName(currentChallenge.name);
+            return currentChallenge.distance > previousChallenge.distance;
+
+        } catch (e) {
+            return true;
+        }
     }
 }
