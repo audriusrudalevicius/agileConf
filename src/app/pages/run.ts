@@ -40,8 +40,8 @@ export class Run {
         try {
             this.challenge = this.registry.getCurrentChallenge();
 
-            if (this.challenge.id != null && this.challenge.timeLeft <= 0 && this.challenge.distance) {
-                this.router.navigate('/results/' + this.challenge.id);
+            if (!this.challenge) {
+                this.router.navigate('/results/');
                 return;
             }
             // Start monitor for seed
