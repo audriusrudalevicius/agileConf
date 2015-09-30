@@ -5,6 +5,7 @@ import {Challenge} from '../services/challenge';
 import {NewChallengeEvent} from '../services/newChallengeEvent';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {BikeManager} from '../services/BikeManager';
+import * as $ from "jquery";
 
 @inject(EventAggregator, ChallengeSubscriber)
 export class Home {
@@ -30,5 +31,9 @@ export class Home {
                 new NewChallengeEvent(this.name)
             );
         }
+    }
+
+    public attached() {
+        $('input[type="text"]').focus();
     }
 }
