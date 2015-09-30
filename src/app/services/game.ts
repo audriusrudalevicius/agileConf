@@ -26,6 +26,10 @@ export class Game {
             speed = 0;
         }
 
+        if (!challenge.maxSpeed || challenge.maxSpeed < speed) {
+            challenge.maxSpeed = speed;
+        }
+
         challenge.speed = speed;
 
         challenge.events++;
@@ -38,9 +42,7 @@ export class Game {
         if (challenge.revolutionsStarted != null) {
             challenge.distance = Math.floor((challenge.revolutionsEnded - challenge.revolutionsStarted) * CIRCUMFERENCE);
         }
-        if (!challenge.maxSpeed || challenge.maxSpeed < speed) {
-            challenge.maxSpeed = speed;
-        }
+
         // Starting game
         if (challenge.started) {
             return;
@@ -53,6 +55,7 @@ export class Game {
     private startGame(challenge:Challenge) {
         this.timer = setInterval(() => {
             if (challenge.timeLeft <= 0 && challenge.started) {
+                if (!this.timer) return;
                 clearInterval(this.timer);
                 this.em.publish(new GameFinishedEvent(challenge));
                 return;

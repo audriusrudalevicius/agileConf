@@ -5,20 +5,28 @@ import {autoinject} from 'aurelia-framework';
 @autoinject
 export class ChallengeRegistry {
     private challenges:Challenge[];
-    private currentChallenge:Challenge[];
+    private newChallenge:Challenge;
 
     constructor() {
         this.load();
     }
 
     public registerNew(name:string):Challenge {
-        this.currentChallenge = Challenge.createNew(name, this.challenges.length);
+        this.newChallenge = Challenge.createNew(name);
 
-        return this.currentChallenge;
+        return this.newChallenge;
     }
 
     public getResults():Challenge[] {
         return this.challenges;
+    }
+
+    public getCurrentChallenge():Challenge {
+        if (this.newChallenge) {
+            return this.newChallenge;
+        }
+
+        throw new Error('Challenge not found');
     }
 
     public findChallenge(id:number):Challenge {
@@ -36,12 +44,13 @@ export class ChallengeRegistry {
     }
 
     public findChallengeByName(name:string):Challenge {
+        let lName = name.toLowerCase();
         for (var i in this.challenges) {
             if (!this.challenges.hasOwnProperty(i)) {
                 continue;
             }
             var challenge = this.challenges[i];
-            if (challenge.name == name) {
+            if (challenge.name.toLowerCase() == lName) {
                 return challenge;
             }
         }
@@ -87,6 +96,7 @@ export class ChallengeRegistry {
 
     public add(challenge:Challenge) {
         this.challenges.push(challenge);
+        challenge.setId(this.challenges.length);
     }
 
     public save() {

@@ -23,8 +23,8 @@ export class ChallengeSubscriber {
 
     subscribe() {
         this.eventAggregator.subscribe(NewChallengeEvent, payload => {
-            var challenge = this.registry.registerNew(payload.name);
-            this.router.navigate('/run/' + challenge.id);
+            this.registry.registerNew(payload.name);
+            this.router.navigate('/run/');
         });
     }
 }

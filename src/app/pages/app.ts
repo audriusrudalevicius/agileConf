@@ -14,7 +14,7 @@ export class App {
         config.map([
             {route: ['', 'home'], moduleId: './loading', nav: false, title: 'Challenge'},
             {route: 'register', moduleId: './register', nav: false, title: 'Challenge', name: 'register'},
-            {route: 'run/:id', moduleId: './run', nav: false, title: 'Challenge'},
+            {route: 'run', moduleId: './run', nav: false, title: 'Challenge', name: 'run'},
             {route: ['results/', 'results/:id'], moduleId: './results', nav: false, title: 'Results', name: 'results'}
         ]);
 

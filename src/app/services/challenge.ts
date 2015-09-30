@@ -1,4 +1,4 @@
-export const GameTime = 30;
+const GameTime = 8;
 
 export class Challenge {
     private _id:number;
@@ -22,9 +22,8 @@ export class Challenge {
         this._events = events;
     }
 
-    public static createNew(name:string, id:number):Challenge {
-        //todo remove random
-        return new Challenge(id, name, 0, 0, 0, GameTime, 0);
+    public static createNew(name:string):Challenge {
+        return new Challenge(null, name, 0, 0, 0, GameTime, 0);
     }
 
     public static unmarshal(obj:any):Challenge {
@@ -105,5 +104,9 @@ export class Challenge {
 
     public set events(value:number) {
         this._events = value;
+    }
+
+    public setId(value:number) {
+        this._id = value;
     }
 }
