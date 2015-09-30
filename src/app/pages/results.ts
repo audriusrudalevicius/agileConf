@@ -28,7 +28,7 @@ export class Results {
 
     activate(params) {
         try {
-            this.challenge = this.registry.findChallenge(params.id);
+            this.challenge = this.registry.findChallengeByName(params.id);
             this.place = this.getPlace();
         } catch (e) {
 

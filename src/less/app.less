@@ -10,11 +10,6 @@ body {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
-  cursor: default;
-}
-
-input[type="text"] {
-  cursor: text;
 }
 
 .vcenter {
@@ -340,6 +335,14 @@ input[type="text"] {
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       color: #BF4C05;
+    }
+
+    tbody > tr.found.current {
+      animation-name: found-bg;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      color: #fff;
     }
 
     .col-place {

@@ -36,11 +36,11 @@ export class GameSubscriber {
                     previousChallenge.maxSpeed = currentChallenge.maxSpeed;
                     previousChallenge.events = currentChallenge.events;
                     this.registry.save();
-                    this.router.navigate('/results/' + previousChallenge.id);
+                    this.router.navigate('/results/' + previousChallenge.name);
                     return;
                 } else {
                     console.log('Weaker Result', currentChallenge.name, (currentChallenge.distance - previousChallenge.distance));
-                    this.router.navigate('/results/' + previousChallenge.id);
+                    this.router.navigate('/results/' + previousChallenge.name);
                     return;
                 }
             } catch (e) {
@@ -48,7 +48,7 @@ export class GameSubscriber {
                 this.registry.add(payload.challenge);
                 this.registry.save();
                 console.log('New Result', currentChallenge.name, currentChallenge.distance);
-                this.router.navigate('/results/' + payload.challenge.id);
+                this.router.navigate('/results/' + payload.challenge.name);
             }
         });
     }
