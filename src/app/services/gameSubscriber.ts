@@ -25,8 +25,31 @@ export class GameSubscriber {
     subscribe() {
         this.eventAggregator.subscribe(GameFinishedEvent, payload => {
             BikeManager.speed.stopMonitors();
-            this.registry.save();
-            this.router.navigate('/results/' + payload.challenge.id);
+            let currentChallenge = payload.challenge;
+            try {
+                let previousChallenge = this.registry.findChallengeByName(currentChallenge.name);
+                if ((currentChallenge.distance > previousChallenge.distance)) {
+                    console.log('Better Result', currentChallenge.name, (currentChallenge.distance - previousChallenge.distance));
+
+                    // Update with new results
+                    previousChallenge.distance = currentChallenge.distance;
+                    previousChallenge.maxSpeed = currentChallenge.maxSpeed;
+                    previousChallenge.events = currentChallenge.events;
+                    this.registry.save();
+                    this.router.navigate('/results/' + previousChallenge.id);
+                    return;
+                } else {
+                    console.log('Weaker Result', currentChallenge.name, (currentChallenge.distance - previousChallenge.distance));
+                    this.router.navigate('/results/' + previousChallenge.id);
+                    return;
+                }
+            } catch (e) {
+                // Save as new
+                this.registry.add(payload.challenge);
+                this.registry.save();
+                console.log('New Result', currentChallenge.name, currentChallenge.distance);
+                this.router.navigate('/results/' + payload.challenge.id);
+            }
         });
     }
 }

@@ -68,8 +68,11 @@ export class Results {
         let scroll = $(this.scroll);
         Ps.initialize(this.scroll);
         let currentEl = $('#result-table tr.current');
-        this.scroll.scrollTop = (currentEl.offset().top - scroll.offset().top) - (currentEl.height() / 2 + scroll.height() / 2);
-        Ps.update(this.scroll);
+
+        if (currentEl && currentEl.length) {
+            this.scroll.scrollTop = (currentEl.offset().top - scroll.offset().top) - (currentEl.height() / 2 + scroll.height() / 2);
+            Ps.update(this.scroll);
+        }
     }
 
     public search() {
