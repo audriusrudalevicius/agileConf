@@ -9,7 +9,7 @@ import {Game} from '../services/game';
 import * as $ from "jquery";
 
 require('jquery-circle-progress');
-const maxSpeed = 40; // circle progress max speed
+const maxSpeed = 45; // circle progress max speed
 const lastSeconds = 10; // circle progress max speed
 
 @inject(EventAggregator, Router, ChallengeRegistry, GameSubscriber, Game)
