@@ -41,7 +41,7 @@
                         <div class="table-results-container" id="result-table">
                             <table class="table table-striped table-hover table-results">
                                 <tbody>
-                                    <tr class="au-animate ${$parent.searchName.toLowerCase() == item.name.toLowerCase() ? 'found' : ''} ${$parent.challenge.id == item.id ? 'current' : ''}" repeat.for="item of results | sort:{ propertyName: 'distance', direction: 'decending' }">
+                                    <tr data-name="${item.name.toLowerCase() | sanitizeHtml}" class="r-item au-animate ${$parent.challenge.id == item.id ? 'current' : ''}" repeat.for="item of results | sort:{ propertyName: 'distance', direction: 'decending' }">
                                         <td class="col-place">${$index + 1}.</td>
                                         <td>${item.name | sanitizeHtml}</td>
                                         <td class="col-max-speed">${item.maxSpeed | numberFormat:'0.0a'} km/h</td>

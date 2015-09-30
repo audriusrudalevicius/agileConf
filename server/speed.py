@@ -101,6 +101,7 @@ class Speed():
         self.sl = SpeedListener()
         self.ee = EventEmitter()
         self.sl.setEM(self.ee)
+        self.channel = None
         self.running = True
 
     def em(self):
@@ -144,6 +145,9 @@ class Speed():
 
     def stop(self):
         logging.info("Closing devices finally")
+        if self.channel is None:
+            pass
+
         # Shutdown channel
         self.channel.close()
         self.channel.unassign()

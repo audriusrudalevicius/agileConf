@@ -18,11 +18,9 @@ export class Results {
     private timer:any;
     private scroll:any;
 
-    constructor(
-        public eventAggregator:EventAggregator,
-        public router:Router,
-        public registry:ChallengeRegistry
-    ) {
+    constructor(public eventAggregator:EventAggregator,
+                public router:Router,
+                public registry:ChallengeRegistry) {
         this.eventAggregator = eventAggregator;
         this.router = router;
         this.registry = registry;
@@ -70,21 +68,29 @@ export class Results {
         let scroll = $(this.scroll);
         Ps.initialize(this.scroll);
         let currentEl = $('#result-table tr.current');
-        this.scroll.scrollTop = (currentEl.offset().top - scroll.offset().top) - (currentEl.height()/2 + scroll.height()/2);
+        this.scroll.scrollTop = (currentEl.offset().top - scroll.offset().top) - (currentEl.height() / 2 + scroll.height() / 2);
         Ps.update(this.scroll);
     }
 
     public search() {
-        let found = $('#result-table tr.found');
+        $('#result-table .r-item').removeClass('found');
+        let found = $('#result-table [data-name^="' + this.escapeStr(this.searchName.toLowerCase()) + '"]');
         let scroll = $(this.scroll);
         if (found.length > 0) {
+            found.addClass('found');
             this.timer = setTimeout(() => {
                 let scrollPos = this.scroll.scrollTop;
                 let currentPosElement = found.position().top;
-                this.scroll.scrollTop = (scrollPos + currentPosElement) - (found.height()/2 + scroll.height()/2);
+                this.scroll.scrollTop = (scrollPos + currentPosElement) - (found.height() / 2 + scroll.height() / 2);
                 Ps.update(this.scroll);
-                console.log(currentPosElement, scrollPos, (scrollPos + currentPosElement) - (found.height()/2 + scroll.height()/2));
             }, 250);
         }
+    }
+
+    private escapeStr(str) {
+        if (str)
+            return str.replace(/(['"[\]])/g, '\\$1');
+
+        return str;
     }
 }

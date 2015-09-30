@@ -22,7 +22,7 @@ export class MockProvider implements ProviderInterface {
             this.messageCallbacks.fire(new SpeedReceivedEvent(seedData), this.messageCallbacks);
             revs++;
         }, 2000);
-        setTimeout(() => {
+        setInterval(() => {
             this.connectedCallbacks.fire(new ConnectedEvent(), this.connectedCallbacks);
         }, 1500);
     }
