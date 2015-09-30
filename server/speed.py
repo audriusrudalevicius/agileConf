@@ -145,8 +145,8 @@ class Speed():
 
     def stop(self):
         logging.info("Closing devices finally")
-        if self.channel is None:L
-            pass
+        if self.channel is None:
+            return None
 
         # Shutdown channel
         self.channel.close()
