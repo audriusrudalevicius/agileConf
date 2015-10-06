@@ -21,7 +21,7 @@
                                     <div class="score-container score-container-distance">
                                         <div class="score-distance-current pull-left">
                                             <h1 class="title">Your distance</h1>
-                                            <span class="value">${challenge.distance | numberFormat:'0.0a'} m</span>
+                                            <span class="value">${challenge.distance | numberFormat:'0a'} m</span>
                                         </div>
                                         <div class="score-distance-diff pull-left" if.bind="challenge.lastDistanceDiff">
                                             <div class="row">
@@ -55,7 +55,7 @@
                                         <td class="col-place">${$index + 1}.</td>
                                         <td>${item.name | sanitizeHtml}</td>
                                         <td class="col-max-speed">${item.maxSpeed | numberFormat:'0.0a'} km/h</td>
-                                        <td class="col-distance">${item.distance | numberFormat:'0.0a'} m.</td>
+                                        <td class="col-distance">${item.distance | numberFormat:'0a'} m.</td>
                                     </tr>
                                 </tbody>
                             </table>
