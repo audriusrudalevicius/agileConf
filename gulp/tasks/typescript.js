@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var tsProject = ts.createProject({
     experimentalDecorators: true,
-    declaration: true,
+    declaration: false,
     noExternalResolve: true,
     typescript: typescript,
     target: 'es5',

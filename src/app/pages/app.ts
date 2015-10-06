@@ -10,7 +10,7 @@ export class App {
     router:Router;
 
     constructor(bm:BikeManager) {
-        bm.init(new MockProvider());
+        bm.init(new SocksJsProvider());
     }
 
     configureRouter(config, router:Router) {
