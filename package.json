@@ -22,6 +22,7 @@
     "browser-sync": "^1.8.1",
     "conventional-changelog": "0.0.11",
     "del": "^1.1.0",
+    "electron-packager": "^5.1.0",
     "electron-prebuilt": "^0.33.3",
     "gulp": "^3.8.10",
     "gulp-babel": "^5.1.0",
