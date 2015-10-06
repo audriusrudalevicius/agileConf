@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "0.12"
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+script: gulp build
+deploy:
+  provider: heroku
+  api_key: "373aee47-beae-48f4-bc83-89df1719ce2f"
+  app: calm-hamlet-4885
+  on:
+    repo: d3trax/agileConf
+  skip_cleanup: true

@@ -1,0 +1,24 @@
+<template>
+    <section class="au-animate">
+        <require from="./../number-format"></require>
+        <div class="row">
+            <div class="pages">
+                <div class="adaptive-mobile">
+                    <div class="well page active bs-component page-run">
+                        <div class="row">
+                            <div class="col-lg-6 speed text-center">
+                                <h3>Speed:</h3>
+                                <div id="speed"><h1>${challenge.speed} km/h</h1></div>
+                                <h2 class="distance">Distance: ${challenge.distance | numberFormat:'0'} m</h2>
+                            </div>
+                            <div class="col-lg-6 distance text-center">
+                                <h3>Time left (seconds):</h3>
+                                <div id="time"><h1 class="${lastSeconds ? 'time-red' : ''}">${challenge.timeLeft}</h1></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

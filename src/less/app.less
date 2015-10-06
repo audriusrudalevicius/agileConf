@@ -1,23 +1,35 @@
 @import "../../node_modules/bootstrap/less/variables";
 @import "variables";
+
 body {
   background: @body-bg;
 }
+
 * {
   box-sizing: border-box;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
 }
+
+input[type="text"] {
+  cursor: text;
+}
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
 .header-panel {
-  background: @body-bg center no-repeat  url("../images/logo.png");
+  background: center no-repeat url("../images/logo.png");
   background-size: 35%;
   background-position-y: 80px;
   background-position-x: 345px;
   height: 315px;
   position: relative;
-  z-index: 3;
-
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
   cursor: default;
 
   .logo-text {
@@ -28,10 +40,12 @@ body {
     font-size: 42px;
   }
 }
+
 .header-panel div {
   position: relative;
   height: 100%;
 }
+
 .header-panel h1 {
   color: #FFF;
   font-size: 200pt;
@@ -47,11 +61,13 @@ body {
   overflow: auto;
   padding: 0;
 }
+
 .menu, .menu * {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
+
 .menu ul {
   padding: 0;
   margin: 7px 0;
@@ -61,6 +77,7 @@ body {
   cursor: default;
   user-select: none;
 }
+
 .menu ul li {
   list-style: none;
   padding: 20px 0 20px 50px;
@@ -68,18 +85,22 @@ body {
   font-weight: normal;
   cursor: pointer;
 }
+
 .menu ul li.active {
   background-color: #dedede;
   position: relative;
 }
+
 .menu ul li a {
   color: rgb(51, 51, 51);
   text-decoration: none;
 }
+
 .pages {
   padding: 0;
   overflow: auto;
 }
+
 .pages > div {
   padding: 0 5px;
 }
@@ -99,6 +120,8 @@ body {
   display: none;
   opacity: 0;
   font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page.active {
@@ -108,11 +131,12 @@ body {
   opacity: 1;
 }
 
-.registration-form {
+.page-run {
   width: 820px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.page-registration {
+  width: 320px;
   > .form-horizontal {
     margin-bottom: 10px;
   }
@@ -131,23 +155,23 @@ body {
     font-size: 18px;
   }
 }
+
 @media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
   .header-panel {
     background-position-x: -165px;
   }
 }
+
 @media (max-width: @screen-sm-max) {
-  .header-panel {
-    height: 90px;
-    background: @body-bg center no-repeat  url("../images/resized_logo.png");
-    background-position-y: 10px;
-  }
+
   .registration-form {
     width: 90%;
   }
+
   .adaptive-mobile {
     width: 100%;
   }
+
   .pages {
     position: inherit;
     bottom: auto;
@@ -157,12 +181,372 @@ body {
     padding-left: @modal-inner-padding;
     width: 100%;
   }
+
   .pages > div {
     padding: 5px 5px 0;
   }
-  .header-panel {
-    height: 90px;
-    background: @body-bg center no-repeat  url("../images/resized_logo.png");
-    background-position-y: 5px;
+}
+
+.page-run {
+  #speed > h1 {
+    position: absolute;
+    left: 152px;
+    top: 98px;
+    font-size: 30px;
+  }
+
+  #time > h1 {
+    font-size: 150px;
+  }
+
+  #time > h1.time-red {
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    color: red;
+  }
+
+  @-moz-keyframes blinker {
+    0% {
+      opacity: 1.0;
+    }
+    50% {
+      opacity: 0.0;
+    }
+    100% {
+      opacity: 1.0;
+    }
+  }
+
+  @-webkit-keyframes blinker {
+    0% {
+      opacity: 1.0;
+    }
+    50% {
+      opacity: 0.0;
+    }
+    100% {
+      opacity: 1.0;
+    }
+  }
+
+  @keyframes blinker {
+    0% {
+      opacity: 1.0;
+    }
+    50% {
+      opacity: 0.0;
+    }
+    100% {
+      opacity: 1.0;
+    }
+  }
+
+  h1.distance {
+    font-weight: bold;
+  }
+}
+
+.container .well.page-run {
+  padding-bottom: 29px;
+}
+
+.score-container {
+  color: #fff;
+  margin-bottom: 20px;
+  padding: 20px 10px 20px 100px;
+  text-align: left;
+
+  .title {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .value {
+    font-size: 38px;
+    line-height: 38px;
+    font-weight: bold;
+  }
+
+  &:before {
+    position: absolute;
+    left: 40px;
+    top: 23px;
+    font: normal normal normal 50px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.score-container-place {
+  background-color: #BF4C05;
+
+  &:before {
+    content: "\f091";
+  }
+}
+
+.score-container-distance {
+  background-color: rgba(255, 97, 0, 88);
+  height: 102px;
+
+  &:before {
+    content: "\f206";
+  }
+
+  & .score-distance-current {
+    width: 155px;
+  }
+
+  .score-distance-diff {
+    position: relative;
+    top: 1px;
+    width: 74px;
+    overflow: hidden;
+    height: 55px;
+
+    .diff-title {
+      font-size: 16px;
+    }
+
+    .diff-value {
+      font-size: 23px;
+      font-weight: bold;
+    }
+  }
+}
+
+.score-container-speed {
+  background-color: rgb(255, 144, 76);
+
+  &:before {
+    content: "\f1d8";
+  }
+}
+
+.results-title {
+  padding-bottom: 20px;
+  h1 {
+    margin-top: 10px;
+  }
+  border-bottom: 1px solid #ddd;
+  margin: 0px 0;
+  input {
+    margin-top: 10px;
+  }
+}
+
+.search-input {
+  width: 300px;
+  margin-top: 16px;
+  margin-left: 25px;
+}
+
+#result-table {
+  width: 100%;
+  height: 420px;
+  position: relative;
+}
+
+.table-results-container {
+  .table-results {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 24px;
+
+    > tbody > tr > td {
+      border-width: 0;
+    }
+
+    tbody > tr:nth-child(1) {
+      font-size: 24px;
+    }
+
+    tbody > tr:nth-child(2) {
+      font-size: 24px;
+    }
+
+    tbody > tr.current {
+      background-color: #BF4C05;
+      color: #fff;
+      &:hover {
+        background-color: #BF4C05 !important;
+      }
+    }
+
+    tbody > tr.found {
+      animation-name: found-bg;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      color: #BF4C05;
+    }
+
+    tbody > tr.found.current {
+      animation-name: found-bg;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      color: #fff;
+    }
+
+    .col-place {
+      width: 50px;
+      text-align: right;
+    }
+
+    .col-distance {
+      text-align: right;
+    }
+  }
+}
+
+@-moz-keyframes found-bg {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes found-bg {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes found-bg {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+.form-group .form-control:focus, .form-group-default .form-control:focus {
+  background: none;
+}
+
+.form-group.has-error .material-input:focus, .form-group.has-error .form-control:focus, .form-group.has-error .form-control.focus {
+  background: none;
+  box-shadow: none;
+  border: 1px #f44336 solid;
+}
+
+.form-control:focus, .form-control.focus {
+  outline: none;
+  -webkit-animation: none;
+  animation: none;
+  box-shadow: none;
+  padding: 0 10px;
+  background: none;
+  border: 1px #666 solid;
+}
+
+.form-control {
+  border: 1px #999 solid;
+  background: none;
+  font-size: 16px;
+  padding: 0 10px;
+  height: 40px !important;
+}
+
+.btn-lg {
+  background: #333 !important;
+  font-weight: 700;
+}
+
+.btn-lg {
+  &:hover {
+    background-color: #555 !important;
+  }
+}
+
+.page-registration > .form-horizontal {
+  margin-bottom: 0px;
+}
+
+.page-results {
+  height: 660px;
+}
+
+.bike {
+  background: url(../images/bike-one.png) no-repeat center bottom;
+  background-size: 70%;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  left: 50%;
+  margin-left: -35%;
+  height: 1200px;
+  opacity: 0.2;
+  text-align: center;
+  z-index: 1;
+}
+
+.concrete {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0.1;
+  top: 0;
+  background: url(../images/concrete.jpg) no-repeat center center;
+}
+
+.main-frame {
+  position: relative;
+  z-index: 2;
+}
+
+.col-distance {
+  font-weight: bold;
+}
+
+.table-striped {
+  tr:hover {
+    background-color: #fff !important;
+  }
+}
+
+.table-striped {
+  tr:nth-child(2n+2) {
+    background-color: #ddd;
+  }
+}
+
+.table-striped {
+  tr:nth-child(2n+2):hover {
+    background-color: #ddd !important;
+  }
+}
+
+.au-animate {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

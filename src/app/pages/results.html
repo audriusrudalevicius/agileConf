@@ -1,0 +1,68 @@
+<template>
+    <section class="au-animate">
+        <require from="./../number-format"></require>
+        <require from="./../sort"></require>
+        <require from="./../sanitize-html"></require>
+        <require from="./../../../jspm_packages/npm/perfect-scrollbar@0.6.5-1/dist/css/perfect-scrollbar.css"></require>
+
+        <div class="row">
+            <div class="pages">
+                <div class="adaptive-mobile">
+                    <div class="well page active bs-component page-results">
+                        <div if.bind="challenge.name">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="score-container score-container-place">
+                                        <h1 class="title">Your place</h1>
+                                        <span class="value">${place} of ${results.length}</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="score-container score-container-distance">
+                                        <div class="score-distance-current pull-left">
+                                            <h1 class="title">Your distance</h1>
+                                            <span class="value">${challenge.distance | numberFormat:'0.0a'} m</span>
+                                        </div>
+                                        <div class="score-distance-diff pull-left" if.bind="challenge.lastDistanceDiff">
+                                            <div class="row">
+                                                <div class="col-xs-12 diff-title text-center">Difference</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 diff-value text-center">${challenge.lastDistanceDiff > 0 ? '+' : '' }${challenge.lastDistanceDiff | numberFormat:'0a'}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="score-container score-container-speed">
+                                        <h1 class="title">Your max speed</h1>
+                                        <span class="value">${challenge.maxSpeed | numberFormat:'0.0a'} km/h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results-title clearfix row">
+                            <h1 class="pull-left">Ranking</h1>
+                            <input class="form-control pull-left search-input" type="text" value.bind="searchName" keyup.delegate="search()" placeholder="Search by name..." >
+                            <a class="pull-right btn btn-material-blue-grey btn-lg btn-raised" route-href="route: register">New Challenge</a>
+                        </div>
+
+                        <div class="table-results-container" id="result-table">
+                            <table class="table table-striped table-hover table-results">
+                                <tbody>
+                                    <tr data-name="${item.name.toLowerCase() | sanitizeHtml}" class="r-item au-animate ${$parent.challenge.name == item.name ? 'current' : ''}" repeat.for="item of results">
+                                        <td class="col-place">${$index + 1}.</td>
+                                        <td>${item.name | sanitizeHtml}</td>
+                                        <td class="col-max-speed">${item.maxSpeed | numberFormat:'0.0a'} km/h</td>
+                                        <td class="col-distance">${item.distance | numberFormat:'0.0a'} m.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

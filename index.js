@@ -23,6 +23,9 @@ app.on('ready', function () {
     });
 
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    mainWindow.setFullScreen(true);
+    mainWindow.setKiosk(true);
+    mainWindow.setMenu(null);
     mainWindow.webContents.on('did-finish-load', function () {
         mainWindow.setTitle(app.getName());
     });
