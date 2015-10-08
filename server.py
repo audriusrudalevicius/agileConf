@@ -8,11 +8,6 @@ from server import config
 from server import speed
 from threading import Thread
 
-class IndexHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('index.html')
-
-
 class BikeConnection(sockjs.tornado.SockJSConnection):
     clients = set()
 
@@ -49,7 +44,7 @@ if __name__ == "__main__":
     speedListener.em().on("connected", CastConnected)
 
     app = tornado.web.Application(
-            [(r"/", IndexHandler)] + BikeChallengeRouter.urls
+        BikeChallengeRouter.urls
     )
 
     app.listen(config.PORT)

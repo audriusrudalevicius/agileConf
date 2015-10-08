@@ -1,15 +1,15 @@
 # Agile App
 
-[![Build Status](https://travis-ci.org/d3trax/agileConf.svg?branch=master)](https://travis-ci.org/d3trax/agileConf)
-
 ## Running The App
 
 To run the app, follow these steps.
 
 1. Ensure that **0.12.x** version of [NodeJS](http://nodejs.org/) is installed. This provides the platform on which the build tooling runs.
 2. From the project folder, execute the following command:
+    Before execution ensure `GITHUB_AUTH_TOKEN` variable is set to your github access token.
 
   ```shell
+  export GITHUB_AUTH_TOKEN="..."
   npm install
   ```
 3. Ensure that [Gulp](http://gulpjs.com/) is installed. If you need to install it, use the following command:
@@ -82,35 +82,6 @@ jspm install aurelia-framework
 jspm install aurelia-http-client
 jspm install aurelia-router
 ```
-3. You can now run the tests with this command:
-
-  ```shell
-  karma start
-  ```
-
-## Running The E2E Tests
-Integration tests are performed with [Protractor](http://angular.github.io/protractor/#/).
-
-1. Place your E2E-Tests into the folder ```test/e2e/src```
-2. Install the necessary webdriver
-
-  ```shell
-  gulp webdriver_update
-  ```
-
-3. Configure the path to the webdriver by opening the file ```protractor.conf.js``` and adjusting the ```seleniumServerJar``` property. Typically its only needed to adjust the version number.
-
-4. Make sure your app runs and is accessible
-
-  ```shell
-  gulp watch
-  ```
-
-5. In another console run the E2E-Tests
-
-  ```shell
-  gulp e2e
-  ```
 
 ## Mocking configuration
 

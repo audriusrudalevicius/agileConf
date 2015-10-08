@@ -5,7 +5,7 @@
   ],
   "website": "",
   "repository": "https://github.com/d3trax/agileConf",
-  "logo": "https://raw.githubusercontent.com/d3trax/agileConf/master/src/images/resized_logo.png",
+  "logo": "https://raw.githubusercontent.com/d3trax/agileConf/master/src/images/logo.png",
   "success_url": "/",
   "scripts": {
     "postdeploy": "npm install"
@@ -17,6 +17,9 @@
     },
     "GITHUB_AUTH_TOKEN": {
       "required": true
+    },
+    "CI": {
+      "value": "1"
     }
   },
   "image": "heroku/nodejs",
