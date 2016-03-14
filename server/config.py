@@ -14,7 +14,7 @@ MOCK = False
 # from/to the stick.
 # Some demos depend on this setting being True, so unless you know what you
 # are doing, leave it as is.
-DEBUG = True
+DEBUG = False
 
 # Set to None to disable logging
 LOG = None

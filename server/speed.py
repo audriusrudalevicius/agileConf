@@ -9,7 +9,7 @@ from pymitter import EventEmitter
 from config import *
 import logging
 
-logging.getLogger().setLevel(logging.DEBUG)
+logging.getLogger().setLevel(logging.INFO)
 
 def convertSB(raw):
     value = int(raw[1]) << 8
@@ -46,22 +46,23 @@ class SpeedListener(event.EventCallback):
 
     def process(self, msg):
         if isinstance(msg, message.ChannelBroadcastDataMessage):
+
             page = msg.payload[1] & 0x7F
             if page != 0 and page != 5:
                 return
 
-            if page == 5:
-                stopped = (msg.payload[2] & 1 == 1)
-                if stopped:
-                    print self.lastRevolutions, 0
+	    revolutions = convertSB(msg.payload[7:9])
+
+#            if page == 5:
+#                stopped = (msg.payload[2] & 1 == 1)
+#                if stopped:
+#                    print self.lastRevolutions, 0
 
             eventTime = convertSB(msg.payload[5:7])
-            if eventTime == self.lastTime:
+            if eventTime == self.lastTime and self.lastRevolutions == revolutions:
                 return
 
-            revolutions = convertSB(msg.payload[7:9])
-
-            speed = self.calcSpeed(eventTime, revolutions)
+            speed = self.calcSpeed(eventTime, revolutions) or 0
 
             logging.debug('Got event Revolutions: %s Speed: %s', revolutions, speed)
 
@@ -113,35 +114,50 @@ class Speed():
         # Initialize
         stick = driver.USB1Driver(SERIAL, log=LOG, debug=DEBUG)
         self.antnode = node.Node(stick)
-        self.antnode.start()
-        self.antnode.registerEventListener(self.sl)
+	try:
+	        self.antnode.start()
+        	self.antnode.registerEventListener(self.sl)
 
-        # Set network key
-        network = node.Network(key=NETKEY, name='N:ANT+')
-        self.antnode.setNetworkKey(0, network)
+	        # Set network key
+	        network = node.Network(key=NETKEY, name='N:ANT+')
+	        self.antnode.setNetworkKey(0, network)
 
-        # Get the first unused channel. Returns an instance of the node.Channel class.
-        self.channel = self.antnode.getFreeChannel()
+	        # Get the first unused channel. Returns an instance of the node.Channel class.
+	        self.channel = self.antnode.getFreeChannel()
 
-        # Initialize it as a receiving channel using our network key
-        self.channel.assign(network, CHANNEL_TYPE_TWOWAY_RECEIVE)
+        	# Initialize it as a receiving channel using our network key
+	        self.channel.assign(network, CHANNEL_TYPE_TWOWAY_RECEIVE)
 
-        # Now set the channel id for pairing with an ANT+ HR monitor
-        self.channel.setID(123, 0, 0)
+	        # Now set the channel id for pairing with an ANT+ HR monitor
+	        self.channel.setID(123, 0, 0)
 
-        # Listen forever and ever (not really, but for a long time)
-        self.channel.searchTimeout = TIMEOUT_NEVER
+	        # Listen forever and ever (not really, but for a long time)
+	        self.channel.searchTimeout = TIMEOUT_NEVER
 
-        # We want a ~4.06 Hz transmission period
-        self.channel.period = 8118
+        	# We want a ~4.06 Hz transmission period
+	        self.channel.period = 8118
 
-        # And ANT frequency 57
-        self.channel.frequency = 57
+	        # And ANT frequency 57
+        	self.channel.frequency = 57
 
-        self.evm = event.EventMachine(driver)
+	        self.evm = event.EventMachine(driver)
 
-        self.channel.open()
-        self.ee.emit("connected", True)
+        	self.channel.open()
+	        self.ee.emit("connected", True)
+		logging.info("Connected!")
+	except Exception:
+	        logging.info("Closing devices - Failed to start")
+	        if self.channel is None:
+        	    return None
+
+	        # Shutdown channel
+        	self.channel.close()
+	        self.channel.unassign()
+
+        	# Shutdown
+	        self.antnode.stop()
+		self.ee.emit("connected", False);
+
 
     def stop(self):
         logging.info("Closing devices finally")

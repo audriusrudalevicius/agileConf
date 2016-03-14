@@ -15,7 +15,7 @@ export class SocksJsProvider implements ProviderInterface {
 
         conn.onmessage = (e) => {
             if (!this.connected) {
-                console.log('Got Connected Event!');
+                console.log('Got Connected Event!', e);
                 this.connectedCallbacks.fire(new ConnectedEvent(), this.connectedCallbacks);
                 this.connected = true;
                 return;

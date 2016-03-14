@@ -29,14 +29,12 @@ export class ChallengeRegistry {
 
     public findChallengeIndex(name:string):number {
         let lName = name.toLowerCase();
-        for (let i in this.challenges) {
-            if (!this.challenges.hasOwnProperty(i)) {
-                continue;
-            }
-            var challenge = this.challenges[i];
-            if (challenge.name.toLowerCase() == lName) {
-                return i;
-            }
+        let challenge = this.challenges.findIndex((ch) => {
+            return ch.name.toLowerCase() === lName;
+        });
+
+        if (challenge != -1) {
+            return challenge;
         }
 
         throw new Error('Challenge not found');
@@ -44,14 +42,12 @@ export class ChallengeRegistry {
 
     public findChallengeByName(name:string):Challenge {
         let lName = name.toLowerCase();
-        for (let i in this.challenges) {
-            if (!this.challenges.hasOwnProperty(i)) {
-                continue;
-            }
-            var challenge = this.challenges[i];
-            if (challenge.name.toLowerCase() == lName) {
-                return challenge;
-            }
+        var challenge = this.challenges.find((ch) => {
+            return ch.name.toLowerCase() === lName;
+        });
+
+        if (challenge) {
+            return challenge;
         }
 
         throw new Error('Challenge not found');
@@ -72,6 +68,7 @@ export class ChallengeRegistry {
             let challenges:Object[] = JSON.parse(loaded);
 
             if (challenges) {
+                console.info('Found %d items', challenges.length);
                 for (let item of challenges) {
                     try {
                         let ch = Challenge.unmarshal(item);
@@ -88,17 +85,21 @@ export class ChallengeRegistry {
                                 console.warn("Found duplicated skipping", item, dup);
                             }
                         } catch (e1) {
+                            console.info("Not found old", e1);
                             this.challenges.push(ch);
                         }
                     } catch (e2) {
-                        console.error("Failed load", item, e2);
+                        console.warn("Failed load", item, e2);
                     }
                 }
+            } else {
+                console.error('Error parsing saved data');
             }
         } catch (e) {
-            console.log('Error loading data', e);
+            console.error('Error loading data', e);
             this.challenges = [];
         }
+        console.log('Loaded data', this.challenges);
     }
 
     public add(challenge:Challenge) {

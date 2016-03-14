@@ -26,6 +26,7 @@ export class GameSubscriber {
             let currentChallenge = payload.challenge;
             try {
                 let previousChallenge = this.registry.findChallengeByName(currentChallenge.name);
+                let diff = (currentChallenge.distance - previousChallenge.distance);
                 if ((currentChallenge.distance > previousChallenge.distance)) {
                     // Update with new results
                     previousChallenge.distance = currentChallenge.distance;
@@ -33,23 +34,20 @@ export class GameSubscriber {
                     previousChallenge.events = currentChallenge.events;
                     previousChallenge.revolutionsEnded = currentChallenge.revolutionsEnded;
                     previousChallenge.revolutionsStarted = currentChallenge.revolutionsStarted;
-                    this.registry.save();
-                    let diff = (currentChallenge.distance - previousChallenge.distance);
-                    console.log('Better Result', currentChallenge.name, diff);
                     previousChallenge.lastDistanceDiff = diff;
+                    console.log('Better Result', currentChallenge.name, diff, currentChallenge.distance, previousChallenge.distance);
+                    this.registry.save();
                     this.router.navigate('/results/' + previousChallenge.name);
                 } else {
-                    let diff = (currentChallenge.distance - previousChallenge.distance);
-                    console.log('Weaker Result', currentChallenge.name, diff);
+                    console.log('Weaker Result', currentChallenge.name, diff, currentChallenge.distance, previousChallenge.distance);
                     previousChallenge.lastDistanceDiff = diff;
-
                     this.router.navigate('/results/' + previousChallenge.name);
                 }
             } catch (e) {
                 // Save as new
                 this.registry.add(payload.challenge);
                 this.registry.save();
-                console.log('New Result', currentChallenge.name, currentChallenge.distance);
+                console.log('New Result', currentChallenge.name, currentChallenge.distance, e);
                 this.router.navigate('/results/' + payload.challenge.name);
             }
         });

@@ -37,7 +37,7 @@ export class Game {
         challenge.speed = speed;
 
         challenge.events++;
-        if (challenge.events < 4) {
+        if (challenge.events < 2) {
             return;
         }
 
